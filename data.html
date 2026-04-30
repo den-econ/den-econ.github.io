@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data &amp; Code — Denver Economics Lab</title>
+  <meta name="description" content="Replication packages, data, and code from Denver Economics Lab research." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ── Header ── -->
+<header>
+  <div class="container">
+    <a class="site-title" href="index.html">Denver Economics Lab</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('nav').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="team.html">Team</a>
+      <a href="papers.html">Research</a>
+      <a href="data.html" class="active">Data &amp; Code</a>
+      <a href="news.html">News</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ── Page Hero ── -->
+<section class="page-hero">
+  <div class="container">
+    <h1>Data &amp; Code</h1>
+    <p>Replication packages and public datasets from our research</p>
+  </div>
+</section>
+
+<!-- ── Replication packages ── -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-heading">Replication Packages</h2>
+    <p style="font-family:'Arial',sans-serif;font-size:.9rem;color:var(--muted);margin-bottom:1.2rem;">
+      All packages include data, code, and instructions to reproduce tables and figures in the
+      corresponding paper. Code is primarily written in Stata and R.
+    </p>
+
+    <ul class="data-list">
+
+      <li>
+        <div class="data-title">Job Displacement and Long-Run Earnings Losses</div>
+        <div class="data-desc">
+          Replication package for Rivera &amp; Vasquez (2024, <em>AER</em>). Includes cleaned
+          administrative panel data (synthetic), Stata do-files, and R scripts for all figures.
+          Restricted-access version of the underlying administrative data is available via
+          application to [Data Authority].
+        </div>
+        <div class="paper-tags" style="margin-bottom:.5rem;">
+          <span class="tag">Stata</span><span class="tag">R</span><span class="tag">Panel data</span>
+        </div>
+        <div class="data-links">
+          <a href="#">GitHub ↗</a>
+          <a href="#">Zenodo ↗</a>
+          <a href="#">README</a>
+        </div>
+      </li>
+
+      <li>
+        <div class="data-title">Microfinance and Female Entrepreneurship (Ghana RCT)</div>
+        <div class="data-desc">
+          Replication package for Chen &amp; Osei (2024, <em>JDE</em>). Includes anonymized
+          survey data from 1,200 households across 60 villages, Stata analysis code, and
+          pre-analysis plan. Survey instrument also available.
+        </div>
+        <div class="paper-tags" style="margin-bottom:.5rem;">
+          <span class="tag">Stata</span><span class="tag">Survey data</span><span class="tag">RCT</span>
+        </div>
+        <div class="data-links">
+          <a href="#">GitHub ↗</a>
+          <a href="#">AEA Data &amp; Code Repository ↗</a>
+          <a href="#">Pre-analysis plan ↗</a>
+        </div>
+      </li>
+
+      <li>
+        <div class="data-title">Wage Dispersion and Search Frictions</div>
+        <div class="data-desc">
+          Replication package for Webb (2024, <em>REStud</em>). Includes simulated data
+          matching moments from employer–employee panel, Julia estimation code, and
+          bootstrapping scripts for standard errors.
+        </div>
+        <div class="paper-tags" style="margin-bottom:.5rem;">
+          <span class="tag">Julia</span><span class="tag">Structural estimation</span>
+        </div>
+        <div class="data-links">
+          <a href="#">GitHub ↗</a>
+          <a href="#">Zenodo ↗</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+</section>
+
+<!-- ── Public datasets ── -->
+<section class="section section-alt">
+  <div class="container">
+    <h2 class="section-heading">Public Datasets</h2>
+
+    <ul class="data-list">
+
+      <li>
+        <div class="data-title">Local Labor Market Panel (LLMP), 2000–2022</div>
+        <div class="data-desc">
+          Annual county-level panel for the United States covering employment, wages, industry
+          composition, and demographic characteristics. Constructed from the Quarterly Census of
+          Employment and Wages (QCEW) and Census/ACS micro-data.
+          <br /><strong>Coverage:</strong> 3,000+ counties, 2000–2022.
+          <strong>Format:</strong> CSV, Stata dta.
+        </div>
+        <div class="paper-tags" style="margin-bottom:.5rem;">
+          <span class="tag">US counties</span><span class="tag">Annual</span><span class="tag">Labor markets</span>
+        </div>
+        <div class="data-links">
+          <a href="#">Download (CSV)</a>
+          <a href="#">Download (dta)</a>
+          <a href="#">Codebook</a>
+          <a href="#">GitHub ↗</a>
+        </div>
+      </li>
+
+      <li>
+        <div class="data-title">School Quality Index, 2005–2022</div>
+        <div class="data-desc">
+          School-level quality index constructed from test scores, value-added estimates, and
+          resource inputs for Colorado public schools. Used in Chen &amp; Mendez (2025).
+          <br /><strong>Coverage:</strong> ~1,800 schools, 2005–2022.
+          <strong>Format:</strong> CSV.
+        </div>
+        <div class="paper-tags" style="margin-bottom:.5rem;">
+          <span class="tag">Colorado schools</span><span class="tag">Education</span>
+        </div>
+        <div class="data-links">
+          <a href="#">Download (CSV)</a>
+          <a href="#">Codebook</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+</section>
+
+<!-- ── Software ── -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-heading">Software &amp; Utilities</h2>
+
+    <ul class="data-list">
+
+      <li>
+        <div class="data-title"><code style="font-size:.95rem;">bunchR</code> — R package for bunching estimation</div>
+        <div class="data-desc">
+          An R package implementing bunching estimators for kink and notch designs following
+          Chetty et al. (2011) and Kleven (2016). Provides functions for estimating elasticities,
+          constructing counterfactual density distributions, and inference via bootstrapping.
+        </div>
+        <div class="paper-tags" style="margin-bottom:.5rem;">
+          <span class="tag">R</span><span class="tag">Bunching</span><span class="tag">Elasticity estimation</span>
+        </div>
+        <div class="data-links">
+          <a href="#">GitHub ↗</a>
+          <a href="#">Documentation ↗</a>
+          <a href="#">CRAN ↗</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+</section>
+
+<!-- ── Data access note ── -->
+<section class="section section-alt">
+  <div class="container">
+    <h2 class="section-heading">Access to Restricted Data</h2>
+    <p style="font-family:'Arial',sans-serif;font-size:.93rem;max-width:720px;">
+      Some of our research uses restricted-access administrative data that cannot be shared
+      publicly. If you are interested in accessing similar data for your own research, we are
+      happy to provide guidance on the application process. Please
+      <a href="mailto:econlab@du.edu">contact us</a>.
+    </p>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Denver Economics Lab</h4>
+        <p>Department of Economics<br />University of Denver<br />Denver, CO 80208</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="papers.html">Research</a></li>
+          <li><a href="data.html">Data &amp; Code</a></li>
+          <li><a href="news.html">News</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p><a href="mailto:econlab@du.edu">econlab@du.edu</a></p>
+      </div>
+    </div>
+    <hr />
+    <p>© 2026 Denver Economics Lab. Built with plain HTML &amp; CSS.</p>
+  </div>
+</footer>
+
+</body>
+</html>
