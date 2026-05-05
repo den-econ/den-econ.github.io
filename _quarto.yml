@@ -1,0 +1,31 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "DEN Economics Lab"
+  description: "Advancing research in development economics, policy analysis, and applied econometrics."
+
+  navbar:
+    title: "📊 DEN Economics Lab"
+    left:
+      - href: index.qmd
+        text: Home
+      - href: research.qmd
+        text: Research
+      - href: people.qmd
+        text: People
+      - href: news.qmd
+        text: News
+      - href: contact.qmd
+        text: Contact
+
+  page-footer:
+    left: "© 2026 DEN Economics Lab · Universitas Indonesia"
+    right: "Built with [Quarto](https://quarto.org) & GitHub Pages"
+
+format:
+  html:
+    theme: flatly
+    css: styles.css
+    toc: false

@@ -1,0 +1,73 @@
+/* DEN Economics Lab – custom styles on top of Quarto flatly theme */
+
+/* Hero banner on the home page */
+.hero-banner {
+  background: linear-gradient(135deg, #1a3a5c 0%, #2a5a8c 100%);
+  color: #ffffff;
+  padding: 5rem 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.hero-banner h1,
+.hero-banner h2,
+.hero-banner p,
+.hero-banner strong {
+  color: #ffffff;
+}
+
+.hero-banner h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 1rem;
+}
+
+.hero-content {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.hero-content p {
+  font-size: 1.15rem;
+  opacity: 0.92;
+  margin-bottom: 2rem;
+}
+
+.hero-banner .btn {
+  margin: 0.4rem;
+}
+
+/* Person cards */
+.person-card {
+  background: #f8f9fa;
+  border-left: 4px solid #1a3a5c;
+  border-radius: 6px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1rem;
+  height: 100%;
+}
+
+.person-card h3 {
+  margin-bottom: 0.25rem;
+  font-size: 1.1rem;
+}
+
+/* News cards */
+.news-card {
+  background: #f8f9fa;
+  border-top: 3px solid #c8963e;
+  border-radius: 6px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1rem;
+  height: 100%;
+}
+
+.news-card h3 {
+  font-size: 1.05rem;
+  margin: 0.5rem 0;
+}
+
+/* Section dividers */
+hr {
+  margin: 2.5rem 0;
+  border-color: #dee2e6;
+}

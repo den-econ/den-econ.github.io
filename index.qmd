@@ -1,0 +1,130 @@
+---
+title: "DEN Economics Lab"
+description: "Advancing research in development economics, policy analysis, and applied econometrics."
+page-layout: full
+---
+
+::: {.hero-banner}
+::: {.hero-content}
+**Research · Policy · Impact**
+
+# DEN Economics Lab
+
+We are a research group dedicated to evidence-based economic analysis,
+development policy, and applied econometrics. Our work bridges academic
+rigour with real-world impact across Indonesia and beyond.
+
+[Explore Our Research](research.qmd){.btn .btn-primary .btn-lg}
+[Meet the Team](people.qmd){.btn .btn-outline-light .btn-lg}
+:::
+:::
+
+---
+
+## What We Do
+
+*Rigorous research. Actionable insights.*
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6 .g-col-lg-3}
+### 🌏 Development Economics
+Studying the drivers of growth, poverty reduction, and inequality
+in emerging economies with a focus on South-East Asia.
+:::
+
+::: {.g-col-12 .g-col-md-6 .g-col-lg-3}
+### 📈 Applied Econometrics
+Developing and applying cutting-edge empirical methods — causal
+inference, machine learning, and big-data approaches.
+:::
+
+::: {.g-col-12 .g-col-md-6 .g-col-lg-3}
+### 🏛️ Policy Analysis
+Evaluating fiscal, trade, and social policies to provide
+evidence-based recommendations to governments and institutions.
+:::
+
+::: {.g-col-12 .g-col-md-6 .g-col-lg-3}
+### 🤝 Capacity Building
+Training the next generation of economists through workshops,
+seminars, and collaborative research programmes.
+:::
+
+:::
+
+---
+
+## Recent Publications
+
+*Selected recent work from our team*
+
+**Trade Liberalisation and Household Welfare in Indonesia: Evidence from District-Level Panel Data**  
+Krisna Gupta, Dinda Rachmania, Arya Pratama · *Journal of Development Economics* · 2024  
+We exploit variation in tariff reductions to identify the causal effect of trade openness on household consumption and poverty rates across 500+ Indonesian districts from 2000–2020.  
+`Trade` `Indonesia` `Causal Inference`
+
+---
+
+**Fiscal Decentralisation, Local Governance Quality, and Public Service Delivery**  
+Siti Aminah, Budi Santoso, Krisna Gupta · *World Development* · 2024  
+Using a regression-discontinuity design around population thresholds that determine local government tiers, we estimate the effect of decentralisation on health and education outcomes.  
+`Fiscal Policy` `Public Finance` `RDD`
+
+---
+
+**Carbon Pricing in a Developing Economy: Labour Market and Distributional Effects**  
+Dinda Rachmania, Yudo Prabowo · *Energy Policy* · 2023  
+A CGE model calibrated to the Indonesian input-output table assesses how alternative carbon-pricing schemes affect wages, employment, and income distribution across sectors.  
+`Climate` `CGE` `Labour Economics`
+
+[View All Publications](research.qmd){.btn .btn-primary}
+
+---
+
+## Latest News
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-4}
+::: {.news-card}
+**Seminar** · April 2026
+
+### Public Seminar: Inequality Trends in Post-Pandemic Indonesia
+
+Join us for a public seminar presenting new findings on income and consumption
+inequality dynamics in Indonesia since 2020.
+
+[Read more →](news.qmd)
+:::
+:::
+
+::: {.g-col-12 .g-col-md-4}
+::: {.news-card}
+**Award** · March 2026
+
+### Best Paper Award at ASEAN Economic Congress
+
+Congratulations to Dinda Rachmania and Yudo Prabowo for receiving the Best
+Paper award at the 2026 ASEAN Economic Congress.
+
+[Read more →](news.qmd)
+:::
+:::
+
+::: {.g-col-12 .g-col-md-4}
+::: {.news-card}
+**Grant** · February 2026
+
+### New Research Grant from the World Bank
+
+DEN Economics Lab has been awarded a World Bank grant to study digital
+financial inclusion in rural Indonesia.
+
+[Read more →](news.qmd)
+:::
+:::
+
+:::
+
+[All News & Events](news.qmd){.btn .btn-primary}

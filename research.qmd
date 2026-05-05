@@ -1,0 +1,152 @@
+---
+title: "Research"
+description: "Our areas of focus, working papers, and published work."
+---
+
+## Research Areas
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+### 🌏 Development Economics
+We study the determinants of long-run growth, poverty, and inequality in developing countries.
+Using nationally representative surveys and administrative data, we examine how policies and
+economic shocks affect the welfare of households across the income distribution.
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### 🏛️ Public Finance & Fiscal Policy
+Our team evaluates tax policy, government expenditure, and fiscal decentralisation. We assess
+how public budgets shape service delivery, local governance, and regional economic
+disparities in Indonesia.
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### 🌱 Environmental & Climate Economics
+We analyse the economic impacts of climate change, natural disasters, and environmental
+regulation. Current projects include the distributional effects of carbon pricing and
+the economics of green industrial policy in ASEAN.
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### 📦 International Trade & Investment
+Our trade researchers investigate how tariff changes, global value chains, and foreign direct
+investment affect domestic firms, workers, and household welfare in emerging economies.
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### 💻 Digital Economy & Financial Inclusion
+Rapid digital adoption offers new opportunities for financial inclusion. We study how digital
+payments, fintech, and e-commerce transform consumption, savings, and labour market
+outcomes in rural and urban Indonesia.
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### 📈 Applied Econometrics & Methods
+We develop and apply modern empirical methods — instrumental variables, regression
+discontinuity, difference-in-differences, synthetic control, and machine-learning
+approaches — to causal identification in economics.
+:::
+
+:::
+
+---
+
+## Working Papers
+
+*Pre-publication work open for comments*
+
+**Digital Financial Inclusion and Rural Consumption Smoothing: Evidence from Indonesian Villages**  
+Krisna Gupta, Budi Santoso, Anisa Widyani · *Working Paper* · 2026  
+Using a randomised rollout of mobile banking services across 1,200 Indonesian villages, we
+estimate the causal effect of digital financial access on consumption volatility, precautionary
+savings, and risk-sharing among low-income rural households.  
+`Digital Finance` `RCT` `Rural Development`
+
+---
+
+**Commodity Boom, Dutch Disease, and Structural Change in Indonesia: 2000–2022**  
+Arya Pratama, Siti Aminah · *Working Paper* · 2025  
+This paper documents how the 2000s commodity super-cycle reshaped Indonesia's industrial
+structure and investigates whether resource windfalls crowded out manufacturing via real
+exchange-rate appreciation.  
+`Natural Resources` `Structural Transformation` `Indonesia`
+
+---
+
+**Minimum Wage Hikes and Informality: A Bunching Estimator for the Indonesian Labour Market**  
+Dinda Rachmania, Yudo Prabowo · *Working Paper* · 2025  
+We exploit kinks in the minimum wage schedule to identify labour-demand elasticities and
+assess the extent to which formal wage floors push workers into informal employment.  
+`Labour Economics` `Informality` `Bunching`
+
+---
+
+## Published Research
+
+*Peer-reviewed articles, book chapters, and policy reports*
+
+**Trade Liberalisation and Household Welfare in Indonesia: Evidence from District-Level Panel Data**  
+Krisna Gupta, Dinda Rachmania, Arya Pratama · *Journal of Development Economics* · 2024  
+We exploit variation in tariff reductions to identify the causal effect of trade openness on
+household consumption and poverty rates across 500+ Indonesian districts from 2000–2020.  
+`Trade` `Indonesia` `Causal Inference`
+
+---
+
+**Fiscal Decentralisation, Local Governance Quality, and Public Service Delivery**  
+Siti Aminah, Budi Santoso, Krisna Gupta · *World Development* · 2024  
+Using a regression-discontinuity design around population thresholds that determine local
+government tiers, we estimate the effect of decentralisation on health and education outcomes.  
+`Fiscal Policy` `Public Finance` `RDD`
+
+---
+
+**Carbon Pricing in a Developing Economy: Labour Market and Distributional Effects**  
+Dinda Rachmania, Yudo Prabowo · *Energy Policy* · 2023  
+A CGE model calibrated to the Indonesian input-output table assesses how alternative
+carbon-pricing schemes affect wages, employment, and income distribution across sectors.  
+`Climate` `CGE` `Labour Economics`
+
+---
+
+**The Returns to Education and Skills in Indonesia: A Meta-Analysis**  
+Budi Santoso, Anisa Widyani · *Asian Development Review* · 2023  
+Combining 80 estimates from 30 studies, we document heterogeneous returns to schooling across
+gender, region, and sector of employment, and assess publication bias using funnel-plot regression.  
+`Education` `Human Capital` `Meta-analysis`
+
+---
+
+**Non-Tariff Barriers, Global Value Chains, and Firm-Level Productivity in ASEAN**  
+Arya Pratama, Krisna Gupta · *Review of International Economics* · 2022  
+`Trade` `GVC` `Firm Productivity`
+
+---
+
+## Data & Replication
+
+*We are committed to open and reproducible research*
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-4}
+### 💾 Datasets
+Cleaned and harmonised datasets used in our research are deposited in public
+repositories for replication and secondary use.
+:::
+
+::: {.g-col-12 .g-col-md-4}
+### 🖥️ Code
+Replication code for our papers is available on
+[GitHub](https://github.com/den-econ).
+We use R, Python, and Stata.
+:::
+
+::: {.g-col-12 .g-col-md-4}
+### 📋 Pre-registration
+We pre-register our studies on the AEA RCT Registry and OSF to ensure
+transparency and reduce publication bias.
+:::
+
+:::

@@ -1,0 +1,76 @@
+---
+title: "Contact Us"
+description: "Reach out for collaboration, media enquiries, or general information."
+---
+
+## Get in Touch
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+
+**🏛️ Address**  
+DEN Economics Lab  
+Faculty of Economics and Business  
+Universitas Indonesia  
+Depok, West Java 16424, Indonesia
+
+**📧 General Enquiries**  
+[den.econ@ui.ac.id](mailto:den.econ@ui.ac.id)
+
+**🔬 Research Collaboration**  
+[research@den-econ.github.io](mailto:research@den-econ.github.io)
+
+**🎓 Graduate Admissions**  
+[phd@den-econ.github.io](mailto:phd@den-econ.github.io)
+
+**💻 GitHub**  
+[github.com/den-econ](https://github.com/den-econ)
+
+:::
+
+::: {.g-col-12 .g-col-md-6}
+
+To send us a message, please email us at
+[den.econ@ui.ac.id](mailto:den.econ@ui.ac.id) with the subject line indicating
+your enquiry (e.g., *Research Collaboration*, *Media Enquiry*, *PhD Application*,
+*Data Request*).
+
+We aim to respond within 3–5 working days.
+
+:::
+
+:::
+
+---
+
+## Frequently Asked Questions
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+### Can I join the lab as a PhD student?
+Yes! We accept PhD students through the official Universitas Indonesia doctoral programme.
+Contact us directly to discuss your research interests before applying.
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### Do you offer visiting researcher positions?
+We welcome visiting researchers for periods of one to twelve months. Funding support
+may be available depending on the project. Please reach out with your CV and proposal.
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### How can I access your data?
+Replication data for published papers is available on GitHub and data repositories.
+For access to restricted administrative data, please contact us with details of your
+research project.
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### Do you provide policy advice?
+Lab members regularly engage with government agencies, international organisations,
+and NGOs. For formal consultancy or policy work, please use the email contact above.
+:::
+
+:::

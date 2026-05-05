@@ -1,0 +1,157 @@
+---
+title: "People"
+description: "Faculty, researchers, and graduate students."
+---
+
+## Faculty
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+::: {.person-card}
+### 👤 Krisna Gupta
+**Director · Associate Professor**
+
+Development economics, international trade, and applied econometrics.
+PhD from Australian National University.
+
+[GitHub](https://github.com/imedkrisna) · [krisna@ui.ac.id](mailto:krisna@ui.ac.id)
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.person-card}
+### 👤 Siti Aminah
+**Associate Professor**
+
+Public finance, fiscal decentralisation, and local governance.
+PhD from University of Groningen.
+
+[s.aminah@ui.ac.id](mailto:s.aminah@ui.ac.id)
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.person-card}
+### 👤 Budi Santoso
+**Assistant Professor**
+
+Labour economics, education, and human capital.
+PhD from Erasmus University Rotterdam.
+
+[b.santoso@ui.ac.id](mailto:b.santoso@ui.ac.id)
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.person-card}
+### 👤 Dinda Rachmania
+**Assistant Professor**
+
+Environmental economics, climate policy, and computable general equilibrium modelling.
+PhD from Kyoto University.
+
+[d.rachmania@ui.ac.id](mailto:d.rachmania@ui.ac.id)
+:::
+:::
+
+:::
+
+---
+
+## Researchers & Postdocs
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-4}
+::: {.person-card}
+### 👤 Arya Pratama
+**Research Fellow**
+
+International trade, global value chains, and firm-level productivity.
+
+[a.pratama@ui.ac.id](mailto:a.pratama@ui.ac.id)
+:::
+:::
+
+::: {.g-col-12 .g-col-md-4}
+::: {.person-card}
+### 👤 Yudo Prabowo
+**Research Fellow**
+
+Labour economics, informal sector, and distributional analysis.
+
+[y.prabowo@ui.ac.id](mailto:y.prabowo@ui.ac.id)
+:::
+:::
+
+::: {.g-col-12 .g-col-md-4}
+::: {.person-card}
+### 👤 Anisa Widyani
+**Research Associate**
+
+Digital economy, fintech, and financial inclusion in rural Indonesia.
+
+[a.widyani@ui.ac.id](mailto:a.widyani@ui.ac.id)
+:::
+:::
+
+:::
+
+---
+
+## Graduate Students
+
+*PhD and Master's students affiliated with the lab*
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+::: {.person-card}
+### 👤 Rizky Aditya
+**PhD Student**
+
+Causal inference methods applied to poverty measurement.
+Supervisor: Krisna Gupta.
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.person-card}
+### 👤 Maya Sari
+**PhD Student**
+
+Tax compliance and behavioural economics.
+Supervisor: Siti Aminah.
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.person-card}
+### 👤 Gilang Nugraha
+**Master's Student**
+
+Energy subsidy reform and household welfare.
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.person-card}
+### 👤 Putri Handayani
+**Master's Student**
+
+Gender wage gap and occupational segregation.
+:::
+:::
+
+:::
+
+---
+
+## Join the Lab
+
+We welcome applications from motivated PhD and Master's students, postdoctoral researchers,
+and visiting scholars. If you are interested in working with us, please reach out via the
+contact form.
+
+[Get in Touch](contact.qmd){.btn .btn-primary}

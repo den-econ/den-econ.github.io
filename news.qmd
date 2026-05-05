@@ -1,0 +1,141 @@
+---
+title: "News & Events"
+description: "Seminars, awards, grants, and lab announcements."
+---
+
+## 2026
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+::: {.news-card}
+**Seminar** · April 2026
+
+### Public Seminar: Inequality Trends in Post-Pandemic Indonesia
+
+Join us for a public seminar presenting new findings on income and consumption inequality
+dynamics in Indonesia since 2020. The seminar will be held at the Faculty of Economics
+and Business, Universitas Indonesia, and streamed online.
+
+- **Speaker:** Krisna Gupta & Budi Santoso
+- **Venue:** Room 201, FEB UI, Depok
+- **Time:** 14:00–16:00 WIB
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.news-card}
+**Award** · March 2026
+
+### Best Paper Award at ASEAN Economic Congress
+
+Congratulations to Dinda Rachmania and Yudo Prabowo, whose paper
+*"Carbon Pricing in a Developing Economy: Labour Market and Distributional Effects"*
+received the Best Paper award at the 2026 ASEAN Economic Congress held in Singapore.
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.news-card}
+**Grant** · February 2026
+
+### New Research Grant from the World Bank
+
+DEN Economics Lab has been awarded a World Bank research grant to study the impacts
+of digital financial inclusion in rural Indonesia. The project will run for three years
+and include randomised controlled trials in four provinces.
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.news-card}
+**Publication** · January 2026
+
+### New Working Paper on Minimum Wages and Informality
+
+Dinda Rachmania and Yudo Prabowo have released a new working paper using bunching
+estimation to examine how minimum-wage hikes affect informal employment in Indonesia.
+:::
+:::
+
+:::
+
+---
+
+## 2025
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+::: {.news-card}
+**Workshop** · November 2025
+
+### Annual Lab Retreat & Methods Workshop
+
+DEN Economics Lab held its third annual research retreat at Puncak, West Java.
+The two-day event featured presentations of ongoing projects and a methods workshop
+on synthetic control methods led by Arya Pratama.
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.news-card}
+**Publication** · September 2025
+
+### New Working Paper: Commodity Boom and Dutch Disease
+
+Arya Pratama and Siti Aminah's working paper on the Indonesian commodity boom and
+Dutch disease effects on manufacturing has been posted to SSRN and is under review
+at the *Journal of Development Economics*.
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.news-card}
+**Media** · July 2025
+
+### Krisna Gupta in Kompas: "Rethinking Trade Policy"
+
+Lab director Krisna Gupta was featured in Kompas newspaper discussing the implications
+of recent ASEAN trade agreements for Indonesian manufacturing and labour markets.
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.news-card}
+**Conference** · June 2025
+
+### Presentations at ASSA Annual Meeting
+
+Three papers from DEN Economics Lab were presented at the ASSA Annual Meeting in
+San Francisco, covering trade, fiscal policy, and environmental economics.
+:::
+:::
+
+:::
+
+---
+
+## Upcoming Events
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-4}
+### 🗓️ May 2026 – Seminar Series
+Monthly internal seminar: Rizky Aditya presents on poverty measurement and causal inference.
+Open to all FEB UI students and faculty.
+:::
+
+::: {.g-col-12 .g-col-md-4}
+### 🎓 June 2026 – Summer School
+One-week intensive course on Applied Econometrics for Master's and PhD students.
+Applications open from April 2026. Seats are limited.
+:::
+
+::: {.g-col-12 .g-col-md-4}
+### 🌏 September 2026 – International Conference
+DEN Economics Lab co-organises the 4th Indonesia Development Economics Conference
+(IDEC 2026). Call for papers coming soon.
+:::
+
+:::
