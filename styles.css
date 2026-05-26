@@ -1,0 +1,14 @@
+/* Small overrides on top of theme.scss */
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  letter-spacing: -0.01em;
+}
+
+.btn {
+  border-radius: 6px;
+  font-weight: 500;
+}

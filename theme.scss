@@ -1,0 +1,317 @@
+/*-- scss:defaults --*/
+
+// DEN brand palette (from fig-den)
+$den-gold:        #EEC051;
+$den-dark-brown:  #845B24;
+$den-red:         #C00000;
+$den-bright-gold: #FFC000;
+$den-tan:         #A19574;
+$den-dark-grey:   #3A3A3A;
+$den-deep-amber:  #935200;
+$den-slate-blue:  #4A6D7C;
+$den-light-gold:  #F8E69B;
+$den-cream:       #FBEEC9;
+
+// Map DEN colors into Bootstrap theme variables
+$primary:   $den-dark-brown;
+$secondary: $den-gold;
+$success:   #5B8A72;
+$info:      $den-slate-blue;
+$warning:   $den-bright-gold;
+$danger:    $den-red;
+$light:     #FAF7EF;
+$dark:      $den-dark-grey;
+
+$body-bg:    #FFFFFF;
+$body-color: $den-dark-grey;
+
+$link-color:       $den-deep-amber;
+$link-hover-color: $den-dark-brown;
+
+// Typography
+$font-family-sans-serif: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+$headings-font-weight:   600;
+$headings-color:         $den-dark-grey;
+
+// Navbar
+$navbar-bg:                  $den-dark-brown;
+$navbar-fg:                  #FFFFFF;
+$navbar-hl:                  $den-gold;
+
+/*-- scss:rules --*/
+
+// Navbar overrides — make the brand text visible on dark brown
+.navbar {
+  border-bottom: 3px solid $den-gold;
+
+  .navbar-title,
+  .navbar-brand {
+    color: #FFFFFF !important;
+    font-weight: 600;
+  }
+
+  .nav-link {
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-weight: 500;
+
+    &:hover,
+    &.active {
+      color: $den-gold !important;
+    }
+  }
+}
+
+// Hero block on the home page
+.hero {
+  background: linear-gradient(135deg, $den-dark-brown 0%, #5C3F19 100%);
+  color: #FFFFFF;
+  padding: 4rem 2rem;
+  margin: -1rem -1rem 3rem -1rem;
+  border-radius: 0 0 12px 12px;
+  text-align: center;
+
+  h1 {
+    color: #FFFFFF;
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 0.5rem;
+  }
+
+  .eyebrow {
+    display: inline-block;
+    color: $den-gold;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  p.lead {
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 1.15rem;
+    max-width: 720px;
+    margin: 0 auto 1.5rem auto;
+  }
+
+  .btn-primary {
+    background-color: $den-gold;
+    border-color: $den-gold;
+    color: $den-dark-grey;
+    font-weight: 600;
+
+    &:hover {
+      background-color: $den-bright-gold;
+      border-color: $den-bright-gold;
+      color: $den-dark-grey;
+    }
+  }
+
+  .btn-outline-light {
+    color: #FFFFFF;
+    border-color: rgba(255, 255, 255, 0.7);
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-color: #FFFFFF;
+      color: #FFFFFF;
+    }
+  }
+}
+
+// Stat strip
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0 3rem 0;
+  padding: 1.5rem;
+  background: $den-cream;
+  border-radius: 10px;
+
+  .stat {
+    text-align: center;
+
+    .stat-number {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: $den-dark-brown;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: $den-dark-grey;
+      margin-top: 0.35rem;
+    }
+  }
+}
+
+// What-we-do cards
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+  margin: 2rem 0;
+}
+
+.feature-card {
+  background: #FFFFFF;
+  border: 1px solid #EEE;
+  border-top: 3px solid $den-gold;
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  }
+
+  h3 {
+    color: $den-dark-brown;
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+  }
+
+  p {
+    color: $den-dark-grey;
+    font-size: 0.95rem;
+    margin: 0;
+  }
+}
+
+// Section headers
+.section-header {
+  text-align: center;
+  margin: 3rem 0 1.5rem 0;
+
+  h2 {
+    color: $den-dark-brown;
+    margin-bottom: 0.25rem;
+  }
+
+  .subtitle {
+    color: $den-tan;
+    font-size: 1rem;
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: $den-gold;
+    margin: 0.75rem auto 0 auto;
+    border-radius: 2px;
+  }
+}
+
+// Publication list
+.publication {
+  border-left: 3px solid $den-gold;
+  padding: 0.75rem 0 0.75rem 1rem;
+  margin-bottom: 1.25rem;
+
+  .pub-title {
+    font-weight: 600;
+    color: $den-dark-grey;
+  }
+
+  .pub-authors {
+    color: $den-deep-amber;
+    font-size: 0.95rem;
+  }
+
+  .pub-meta {
+    color: $den-tan;
+    font-size: 0.85rem;
+    font-style: italic;
+  }
+
+  .pub-abstract {
+    color: $den-dark-grey;
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+  }
+
+  .tag {
+    display: inline-block;
+    background: $den-cream;
+    color: $den-dark-brown;
+    font-size: 0.75rem;
+    padding: 0.15rem 0.55rem;
+    border-radius: 999px;
+    margin: 0.5rem 0.25rem 0 0;
+  }
+}
+
+// People grid
+.people-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.person-card {
+  text-align: center;
+  background: #FFFFFF;
+  border: 1px solid #EEE;
+  border-radius: 8px;
+  padding: 1.25rem;
+
+  .person-avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: $den-cream;
+    color: $den-dark-brown;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0 auto 0.75rem auto;
+  }
+
+  .person-name {
+    font-weight: 600;
+    color: $den-dark-grey;
+    margin: 0;
+  }
+
+  .person-role {
+    color: $den-deep-amber;
+    font-size: 0.9rem;
+    margin: 0.25rem 0;
+  }
+
+  .person-bio {
+    font-size: 0.85rem;
+    color: $den-dark-grey;
+  }
+}
+
+// Listing pages (Quarto's built-in)
+.quarto-listing {
+  .quarto-listing-default {
+    .listing-title {
+      color: $den-dark-brown;
+    }
+    .listing-date,
+    .listing-categories {
+      color: $den-tan;
+    }
+  }
+}
+
+// Footer
+.nav-footer {
+  border-top: 3px solid $den-gold;
+  background: #FAF7EF !important;
+  color: $den-dark-grey;
+
+  a {
+    color: $den-deep-amber;
+    &:hover { color: $den-dark-brown; }
+  }
+}

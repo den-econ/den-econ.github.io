@@ -1,0 +1,63 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - "*.qmd"
+    - "!README.md"
+
+website:
+  title: "DEN Economics Lab"
+  description: "Evidence-based economic research, policy analysis, and applied econometrics."
+  site-url: "https://den-econ.github.io"
+  repo-url: "https://github.com/den-econ/den-econ.github.io"
+  favicon: assets/favicon.png
+  page-navigation: true
+
+  navbar:
+    background: primary
+    pinned: true
+    logo: assets/logo.png
+    title: "DEN Economics Lab"
+    left:
+      - href: index.qmd
+        text: Home
+      - href: research.qmd
+        text: Research
+      - href: people.qmd
+        text: People
+      - href: news/index.qmd
+        text: News
+    right:
+      - icon: github
+        href: https://github.com/den-econ
+        aria-label: GitHub
+      - icon: envelope
+        href: mailto:den.econ@dewanekonomi.go.id
+        aria-label: Email
+
+  page-footer:
+    background: light
+    left: |
+      © 2026 DEN Economics Lab · Dewan Ekonomi Nasional
+    center: |
+      [Home](index.qmd) · [Research](research.qmd) · [People](people.qmd) · [News](news/index.qmd)
+    right: |
+      [GitHub](https://github.com/den-econ) · <den.econ@dewanekonomi.go.id>
+
+format:
+  html:
+    theme:
+      - cosmo
+      - theme.scss
+    css: styles.css
+    toc: false
+    code-copy: true
+    code-overflow: wrap
+    smooth-scroll: true
+    link-external-newwindow: true
+    fontsize: 1rem
+    mainfont: "Inter, system-ui, -apple-system, Segoe UI, sans-serif"
+    grid:
+      sidebar-width: 250px
+      body-width: 900px
+      margin-width: 250px
