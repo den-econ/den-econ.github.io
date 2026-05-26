@@ -1,0 +1,140 @@
+---
+title: ""
+pagetitle: "DEN Economics Lab"
+page-layout: full
+toc: false
+include-in-header:
+  text: |
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+---
+
+::: {.hero}
+<span class="eyebrow">Research · Policy · Impact</span>
+
+# DEN Economics Lab
+
+<p class="lead">
+The research arm of Indonesia's Dewan Ekonomi Nasional (National Economic Council).
+We produce evidence-based analysis on macroeconomic, trade, and industrial policy
+to inform decisions across government and the broader Indonesian economy.
+</p>
+
+[Explore Research](research.qmd){.btn .btn-primary .btn-lg}
+[Meet the Team](people.qmd){.btn .btn-outline-light .btn-lg}
+:::
+
+::: {.stats}
+::: {.stat}
+[12+]{.stat-number}
+
+[Researchers]{.stat-label}
+:::
+::: {.stat}
+[50+]{.stat-number}
+
+[Publications]{.stat-label}
+:::
+::: {.stat}
+[8]{.stat-number}
+
+[Active Projects]{.stat-label}
+:::
+::: {.stat}
+[15+]{.stat-number}
+
+[Partner Institutions]{.stat-label}
+:::
+:::
+
+::: {.section-header}
+## What We Do
+
+[Rigorous research. Actionable insights.]{.subtitle}
+:::
+
+::: {.feature-grid}
+::: {.feature-card}
+### Macroeconomics
+
+Fiscal, monetary, and growth diagnostics for the Indonesian economy. Structural
+models including DSGE and heterogeneous-agent frameworks.
+:::
+
+::: {.feature-card}
+### Trade & Industry
+
+CGE modeling with GTAP-RD/GDyn-FS, tariff analysis, and applied work on trade
+agreements (Indonesia–US ART, ASEAN integration).
+:::
+
+::: {.feature-card}
+### Applied Econometrics
+
+Panel methods (PMG/MG/DFE), gravity estimation with `ppmlhdfe`, and modern
+causal-inference designs applied to Indonesian micro and macro data.
+:::
+
+::: {.feature-card}
+### Capacity Building
+
+Training the next generation of Indonesian economists through workshops,
+supervised research, and open-source tooling (`fig-den`, `ggden`).
+:::
+:::
+
+::: {.section-header}
+## Recent Publications
+
+[Selected recent work from the lab]{.subtitle}
+:::
+
+::: {.publication}
+[Trade Liberalisation and Household Welfare in Indonesia: Evidence from District-Level Panel Data]{.pub-title}
+
+[Krisna Gupta, Dinda Rachmania, Arya Pratama]{.pub-authors}
+
+[Journal of Development Economics · 2024]{.pub-meta}
+
+[We exploit variation in tariff reductions to identify the causal effect of trade openness on household consumption and poverty rates across 500+ Indonesian districts from 2000–2020.]{.pub-abstract}
+
+[Trade]{.tag} [Indonesia]{.tag} [Causal Inference]{.tag}
+:::
+
+::: {.publication}
+[Fiscal Decentralisation, Local Governance Quality, and Public Service Delivery]{.pub-title}
+
+[Siti Aminah, Budi Santoso, Krisna Gupta]{.pub-authors}
+
+[World Development · 2024]{.pub-meta}
+
+[Using a regression-discontinuity design around population thresholds that determine local government tiers, we estimate the effect of decentralisation on health and education outcomes.]{.pub-abstract}
+
+[Fiscal Policy]{.tag} [Public Finance]{.tag} [RDD]{.tag}
+:::
+
+::: {.publication}
+[Carbon Pricing in a Developing Economy: Labour Market and Distributional Effects]{.pub-title}
+
+[Dinda Rachmania, Yudo Prabowo]{.pub-authors}
+
+[Energy Policy · 2023]{.pub-meta}
+
+[A CGE model calibrated to the Indonesian input-output table assesses how alternative carbon-pricing schemes affect wages, employment, and income distribution across sectors.]{.pub-abstract}
+
+[Climate]{.tag} [CGE]{.tag} [Labour Economics]{.tag}
+:::
+
+::: {.text-center .mt-4}
+[All publications](research.qmd){.btn .btn-primary}
+:::
+
+::: {.section-header}
+## Latest News
+
+[Seminars, awards, and lab updates]{.subtitle}
+:::
+
+::: {.text-center .mt-2}
+[See all news →](news/index.qmd){.btn .btn-outline-primary}
+:::
