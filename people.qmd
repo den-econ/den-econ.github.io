@@ -1,0 +1,97 @@
+---
+title: "People"
+subtitle: "The researchers and students behind DEN Economics Lab"
+toc: false
+---
+
+## Faculty & senior researchers
+
+::: {.people-grid}
+::: {.person-card}
+[KG]{.person-avatar}
+
+[Krisna Gupta]{.person-name}
+
+[Lead researcher · DEN]{.person-role}
+
+[Macroeconomics, trade policy, CGE. PhD in Economics.]{.person-bio}
+:::
+
+::: {.person-card}
+[DR]{.person-avatar}
+
+[Dinda Rachmania]{.person-name}
+
+[Senior researcher]{.person-role}
+
+[Climate economics, CGE modeling, distributional analysis.]{.person-bio}
+:::
+
+::: {.person-card}
+[SA]{.person-avatar}
+
+[Siti Aminah]{.person-name}
+
+[Senior researcher]{.person-role}
+
+[Public finance, fiscal decentralisation, quasi-experimental methods.]{.person-bio}
+:::
+
+::: {.person-card}
+[BS]{.person-avatar}
+
+[Budi Santoso]{.person-name}
+
+[Affiliated researcher]{.person-role}
+
+[Labour economics, education policy, panel data methods.]{.person-bio}
+:::
+:::
+
+## Researchers & analysts
+
+::: {.people-grid}
+::: {.person-card}
+[AP]{.person-avatar}
+
+[Arya Pratama]{.person-name}
+
+[Research economist]{.person-role}
+
+[Gravity models, applied trade econometrics.]{.person-bio}
+:::
+
+::: {.person-card}
+[YP]{.person-avatar}
+
+[Yudo Prabowo]{.person-name}
+
+[Research economist]{.person-role}
+
+[Energy economics, sectoral modeling.]{.person-bio}
+:::
+:::
+
+## Research assistants & students
+
+::: {.people-grid}
+::: {.person-card}
+[RA]{.person-avatar}
+
+[Research Assistant]{.person-name}
+
+[Open position]{.person-role}
+
+[We are recruiting. See the [contact section](#join-the-lab) below.]{.person-bio}
+:::
+:::
+
+## Join the lab {#join-the-lab}
+
+We periodically take on research assistants and visiting scholars. If you are
+working on Indonesian macroeconomics, trade, or applied policy and would like
+to collaborate, get in touch:
+
+- General inquiries: <den.econ@dewanekonomi.go.id>
+- Lead researcher: <krisna@dewanekonomi.go.id>
+- GitHub: [github.com/den-econ](https://github.com/den-econ)

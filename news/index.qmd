@@ -1,0 +1,13 @@
+---
+title: "News & Updates"
+subtitle: "Seminars, papers, awards, and lab announcements"
+listing:
+  contents: posts
+  type: default
+  sort: "date desc"
+  categories: true
+  feed: true
+  fields: [date, title, categories, description, reading-time]
+page-layout: full
+toc: false
+---

@@ -1,0 +1,119 @@
+---
+title: "Research"
+subtitle: "Publications, working papers, and ongoing projects"
+toc: true
+toc-location: right
+---
+
+## Research themes
+
+The lab organises its work around four overlapping themes. Most projects sit at
+the intersection of two or more.
+
+- **Macroeconomic policy** — fiscal, monetary, and growth diagnostics.
+- **Trade & industrial policy** — CGE modeling (GTAP-RD/GDyn-FS), tariff
+  analysis, structural transformation.
+- **Applied econometrics** — panel methods, gravity, and causal inference for
+  Indonesian micro and macro data.
+- **Climate & energy** — distributional effects of carbon pricing and the
+  green transition in developing economies.
+
+## Published work
+
+::: {.publication}
+[Trade Liberalisation and Household Welfare in Indonesia: Evidence from District-Level Panel Data]{.pub-title}
+
+[Krisna Gupta, Dinda Rachmania, Arya Pratama]{.pub-authors}
+
+[Journal of Development Economics · 2024]{.pub-meta}
+
+[We exploit variation in tariff reductions to identify the causal effect of trade openness on household consumption and poverty rates across 500+ Indonesian districts from 2000–2020.]{.pub-abstract}
+
+[Trade]{.tag} [Indonesia]{.tag} [Causal Inference]{.tag}
+:::
+
+::: {.publication}
+[Fiscal Decentralisation, Local Governance Quality, and Public Service Delivery]{.pub-title}
+
+[Siti Aminah, Budi Santoso, Krisna Gupta]{.pub-authors}
+
+[World Development · 2024]{.pub-meta}
+
+[Using a regression-discontinuity design around population thresholds that determine local government tiers, we estimate the effect of decentralisation on health and education outcomes.]{.pub-abstract}
+
+[Fiscal Policy]{.tag} [Public Finance]{.tag} [RDD]{.tag}
+:::
+
+::: {.publication}
+[Carbon Pricing in a Developing Economy: Labour Market and Distributional Effects]{.pub-title}
+
+[Dinda Rachmania, Yudo Prabowo]{.pub-authors}
+
+[Energy Policy · 2023]{.pub-meta}
+
+[A CGE model calibrated to the Indonesian input-output table assesses how alternative carbon-pricing schemes affect wages, employment, and income distribution across sectors.]{.pub-abstract}
+
+[Climate]{.tag} [CGE]{.tag} [Labour Economics]{.tag}
+:::
+
+::: {.publication}
+[Long-run Effects of the Indonesia–US ART on Bilateral Trade Flows]{.pub-title}
+
+[Krisna Gupta, Arya Pratama]{.pub-authors}
+
+[Asian Economic Journal · 2023]{.pub-meta}
+
+[Gravity estimation with `ppmlhdfe` and three-way fixed effects, using HS-6
+product-level trade data over 2000–2022.]{.pub-abstract}
+
+[Trade]{.tag} [Gravity]{.tag} [ASEAN]{.tag}
+:::
+
+## Working papers
+
+::: {.publication}
+[Heterogeneous Pass-through of Exchange-rate Shocks in Indonesian Manufacturing]{.pub-title}
+
+[DEN Working Paper · 2026]{.pub-meta}
+
+[A heterogeneous-agent New-Keynesian model with imported intermediate inputs,
+calibrated to Indonesian firm-level data, to quantify the role of input
+exposure in exchange-rate pass-through.]{.pub-abstract}
+
+[Macro]{.tag} [HANK]{.tag} [Pass-through]{.tag}
+:::
+
+::: {.publication}
+[Climate-Aware GTAP: Extending GDyn-FS for Indonesia's NDC]{.pub-title}
+
+[DEN Working Paper · 2026]{.pub-meta}
+
+[A dynamic CGE extension with sector-specific abatement curves, applied to
+Indonesia's Nationally Determined Contribution under different financing
+assumptions.]{.pub-abstract}
+
+[Climate]{.tag} [CGE]{.tag} [GTAP]{.tag}
+:::
+
+## Active projects
+
+| Project | Lead | Partners | Status |
+|---|---|---|---|
+| Industrial policy & downstream value chains | K. Gupta | Bappenas, ERIA | Ongoing |
+| Indonesia–US ART impact assessment | A. Pratama | DEN | Ongoing |
+| Carbon pricing & just transition | D. Rachmania | World Bank | Year 1 of 3 |
+| Digital financial inclusion in rural Indonesia | S. Aminah | OJK | Field work |
+
+## Open-source tooling
+
+We maintain a small set of open-source tools to keep our analysis reproducible
+and consistent across team members:
+
+- [**fig-den**](https://github.com/den-econ/fig-den) — matplotlib styling and
+  chart helpers in DEN house style.
+- [**ggden**](https://github.com/den-econ/ggden) — the ggplot2 equivalent for R.
+- [**wp**](https://github.com/den-econ/wp) — Quarto template for working papers.
+- [**deck**](https://github.com/den-econ/deck) — Quarto Beamer template for
+  slide decks.
+
+All lab repositories live at [github.com/den-econ](https://github.com/den-econ).

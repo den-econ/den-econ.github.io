@@ -1,0 +1,18 @@
+---
+title: "New Research Grant from the World Bank"
+description: "DEN Economics Lab receives a World Bank grant to study digital financial inclusion in rural Indonesia."
+date: "2026-02-10"
+categories: [grant, financial-inclusion]
+author: "DEN Economics Lab"
+---
+
+DEN Economics Lab has been awarded a **World Bank research grant** to study the
+impacts of **digital financial inclusion** in rural Indonesia. The three-year
+project will combine administrative data from OJK with primary survey work in
+selected districts in Sulawesi and Nusa Tenggara.
+
+**Principal investigator.** Siti Aminah
+
+**Partners.** OJK, World Bank
+
+**Duration.** 2026–2028

@@ -10,22 +10,20 @@ website:
   description: "Evidence-based economic research, policy analysis, and applied econometrics."
   site-url: "https://den-econ.github.io"
   repo-url: "https://github.com/den-econ/den-econ.github.io"
-  favicon: assets/favicon.png
   page-navigation: true
 
   navbar:
     background: primary
     pinned: true
-    logo: assets/logo.png
     title: "DEN Economics Lab"
     left:
-      - href: index.qmd
+      - href: /index.qmd
         text: Home
-      - href: research.qmd
+      - href: /research.qmd
         text: Research
-      - href: people.qmd
+      - href: /people.qmd
         text: People
-      - href: news/index.qmd
+      - href: /news/index.qmd
         text: News
     right:
       - icon: github
@@ -40,7 +38,7 @@ website:
     left: |
       © 2026 DEN Economics Lab · Dewan Ekonomi Nasional
     center: |
-      [Home](index.qmd) · [Research](research.qmd) · [People](people.qmd) · [News](news/index.qmd)
+      [Home](/index.qmd) · [Research](/research.qmd) · [People](/people.qmd) · [News](/news/index.qmd)
     right: |
       [GitHub](https://github.com/den-econ) · <den.econ@dewanekonomi.go.id>
 
