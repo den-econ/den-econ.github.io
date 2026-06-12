@@ -1,6 +1,8 @@
 project:
   type: website
   output-dir: _site
+  resources:
+    - geoeconomics/
   render:
     - "*.qmd"
     - "!README.md"
@@ -25,6 +27,8 @@ website:
         text: People
       - href: /news/index.qmd
         text: News
+      - href: /geoeconomics/
+        text: Geoeconomics
     right:
       - icon: github
         href: https://github.com/den-econ

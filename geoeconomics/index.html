@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Interactive geoeconomics risk dashboard for Indonesia, Australia, and China trade dependencies.">
+<title>Geoeconomics Risk Dashboard — IDN · AUS · CHN</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+  :root {
+    --bg: #f7f6f3;
+    --surface: #ffffff;
+    --surface2: #f0ede8;
+    --border: rgba(0,0,0,0.09);
+    --border-strong: rgba(0,0,0,0.18);
+    --text: #1a1917;
+    --text2: #6b6860;
+    --text3: #9c9a95;
+    --red: #c0392b; --red-bg: #fdf1f0; --red-mid: #e74c3c;
+    --amber: #c07a10; --amber-bg: #fef8ec;
+    --green: #2e7d32; --green-bg: #edf7ed;
+    --blue: #1a5fa8; --blue-bg: #edf3fb;
+    --idn: #c0392b;
+    --aus: #1a5fa8;
+    --chn: #2e7d32;
+    --radius: 10px;
+    --radius-sm: 6px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .skip-link {
+    position: absolute;
+    left: 16px;
+    top: -48px;
+    z-index: 1000;
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+    color: var(--text);
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.14);
+    transition: top .15s ease;
+  }
+  .skip-link:focus { top: 12px; }
+
+  /* HEADER */
+  .header {
+    background: var(--text);
+    color: #f7f6f3;
+    padding: 28px 40px 24px;
+  }
+  .header-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .header h1 {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+    line-height: 1.3;
+  }
+  .header p {
+    font-size: 13px;
+    color: rgba(247,246,243,0.55);
+    margin-top: 4px;
+  }
+  .flag-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-top: 2px;
+  }
+  .flag-pill {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.04em;
+  }
+  .fp-idn { background: rgba(192,57,43,0.25); color: #ff9e9e; }
+  .fp-aus { background: rgba(26,95,168,0.25); color: #90bdf4; }
+  .fp-chn { background: rgba(46,125,50,0.25); color: #90d690; }
+
+  /* NAV TABS */
+  .nav-bar {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-btn {
+    font-size: 13px;
+    font-weight: 500;
+    padding: 13px 18px;
+    border: none;
+    background: none;
+    color: var(--text2);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .nav-btn:hover { color: var(--text); }
+  .nav-btn:focus-visible {
+    outline: 2px solid var(--blue);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
+  }
+  .nav-btn.active { color: var(--text); border-bottom-color: var(--text); }
+
+  /* MAIN */
+  .main { max-width: 1100px; margin: 0 auto; padding: 32px 40px 60px; }
+
+  .panel { display: none; }
+  .panel.active { display: block; }
+
+  /* SECTION LABEL */
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text3);
+    margin-bottom: 12px;
+  }
+
+  /* METRIC CARDS */
+  .metric-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .mc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+  }
+  .mc-label { font-size: 11px; color: var(--text2); margin-bottom: 6px; }
+  .mc-value { font-size: 26px; font-weight: 600; letter-spacing: -0.5px; }
+  .mc-sub { font-size: 11px; color: var(--text3); margin-top: 5px; }
+
+  /* BADGE */
+  .badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 20px;
+    letter-spacing: 0.03em;
+  }
+  .b-red { background: var(--red-bg); color: var(--red); }
+  .b-amber { background: var(--amber-bg); color: var(--amber); }
+  .b-green { background: var(--green-bg); color: var(--green); }
+  .b-blue { background: var(--blue-bg); color: var(--blue); }
+
+  /* CARD */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 22px;
+  }
+  .card-title { font-size: 14px; font-weight: 600; margin-bottom: 3px; }
+  .card-sub { font-size: 12px; color: var(--text2); margin-bottom: 16px; }
+
+  /* GRID LAYOUTS */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 20px; }
+
+  /* BAR ROWS */
+  .bar-item {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 8px;
+  }
+  .bar-lbl {
+    font-size: 12px;
+    color: var(--text2);
+    width: 120px;
+    flex-shrink: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .bar-track {
+    flex: 1;
+    background: var(--surface2);
+    border-radius: 4px;
+    height: 20px;
+    overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding-left: 8px;
+    min-width: 30px;
+    transition: width 0.6s ease;
+  }
+  .bar-pct { font-size: 11px; font-weight: 600; color: #fff; }
+  .bar-val { font-size: 11px; color: var(--text3); width: 44px; text-align: right; flex-shrink: 0; }
+
+  /* HHI BARS */
+  .hhi-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .hhi-lbl { font-size: 12px; color: var(--text2); width: 90px; flex-shrink: 0; }
+  .hhi-track {
+    flex: 1;
+    background: var(--surface2);
+    border-radius: 4px;
+    height: 26px;
+    overflow: hidden;
+    position: relative;
+  }
+  .hhi-fill {
+    height: 100%;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    transition: width 0.8s ease;
+  }
+  .hhi-num { font-size: 12px; font-weight: 600; color: #fff; }
+
+  /* RISK TABLE */
+  .risk-table { width: 100%; border-collapse: collapse; }
+  .risk-table th {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text3);
+    padding: 8px 10px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  .risk-table td {
+    font-size: 12px;
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+  }
+  .risk-table tr:last-child td { border-bottom: none; }
+  .risk-table tr:hover td { background: var(--surface2); }
+  .mono { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 11px; color: var(--text2); }
+
+  /* HIGHLIGHT BOX */
+  .highlight {
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    font-size: 12px;
+    margin-top: 12px;
+    line-height: 1.5;
+  }
+  .hl-red { background: var(--red-bg); color: var(--red); border-left: 3px solid var(--red); }
+  .hl-amber { background: var(--amber-bg); color: var(--amber); border-left: 3px solid var(--amber); }
+  .hl-blue { background: var(--blue-bg); color: var(--blue); border-left: 3px solid var(--blue); }
+  .hl-green { background: var(--green-bg); color: var(--green); border-left: 3px solid var(--green); }
+
+  /* LEGEND */
+  .legend { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 12px; }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--text2); }
+  .legend-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+
+  /* RISK MATRIX */
+  .matrix-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    gap: 12px;
+  }
+  .matrix-row:last-child { border-bottom: none; }
+  .matrix-info { flex: 1; }
+  .matrix-name { font-size: 13px; font-weight: 500; }
+  .matrix-detail { font-size: 11px; color: var(--text2); margin-top: 2px; }
+
+  /* DONUT CHART PLACEHOLDER */
+  .chart-wrap { position: relative; width: 100%; }
+
+  /* SEPARATOR */
+  .sep { height: 1px; background: var(--border); margin: 24px 0; }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    padding: 24px;
+    font-size: 11px;
+    color: var(--text3);
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+  }
+
+  @media (max-width: 768px) {
+    .main { padding: 20px 16px 40px; }
+    .header { padding: 20px 16px; }
+    .nav-bar { padding: 0 16px; }
+    .metric-grid { grid-template-columns: 1fr 1fr; }
+    .grid-2 { grid-template-columns: 1fr; }
+    .grid-3 { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to dashboard content</a>
+
+<header class="header">
+  <div class="header-top">
+    <div>
+      <h1>Geoeconomics Risk Dashboard</h1>
+      <p>Analisis ketergantungan perdagangan · Data HS 6-digit · 2025</p>
+    </div>
+    <div class="flag-row">
+      <span class="flag-pill fp-idn">🇮🇩 Indonesia</span>
+      <span class="flag-pill fp-aus">🇦🇺 Australia</span>
+      <span class="flag-pill fp-chn">🇨🇳 China</span>
+    </div>
+  </div>
+</header>
+
+<nav class="nav-bar" aria-label="Dashboard sections">
+  <button id="tab-overview" class="nav-btn active" type="button" aria-controls="panel-overview" aria-selected="true" onclick="showPanel('overview', this)">Overview</button>
+  <button id="tab-indonesia" class="nav-btn" type="button" aria-controls="panel-indonesia" aria-selected="false" onclick="showPanel('indonesia', this)">Indonesia — Impor</button>
+  <button id="tab-australia" class="nav-btn" type="button" aria-controls="panel-australia" aria-selected="false" onclick="showPanel('australia', this)">Australia — Ekspor</button>
+  <button id="tab-komoditas" class="nav-btn" type="button" aria-controls="panel-komoditas" aria-selected="false" onclick="showPanel('komoditas', this)">Komoditas Strategis</button>
+  <button id="tab-china" class="nav-btn" type="button" aria-controls="panel-china" aria-selected="false" onclick="showPanel('china', this)">China Factor</button>
+</nav>
+
+<main id="main-content" class="main">
+
+<!-- ==================== OVERVIEW ==================== -->
+<section id="panel-overview" class="panel active" role="region" aria-labelledby="tab-overview">
+
+  <div class="section-label">Ringkasan posisi perdagangan 2025</div>
+  <div class="metric-grid">
+    <div class="mc">
+      <p class="mc-label">Total Impor Indonesia</p>
+      <p class="mc-value" style="color:var(--idn)">$241,6B</p>
+      <p class="mc-sub">HHI <strong>1.534</strong> <span class="badge b-red">Kritis</span></p>
+    </div>
+    <div class="mc">
+      <p class="mc-label">Total Ekspor Indonesia</p>
+      <p class="mc-value">$281,7B</p>
+      <p class="mc-sub">HHI <strong>890</strong> <span class="badge b-green">Aman</span></p>
+    </div>
+    <div class="mc">
+      <p class="mc-label">Total Impor Australia</p>
+      <p class="mc-value">$308,7B</p>
+      <p class="mc-sub">HHI <strong>1.007</strong> <span class="badge b-amber">Waspada</span></p>
+    </div>
+    <div class="mc">
+      <p class="mc-label">Total Ekspor Australia</p>
+      <p class="mc-value" style="color:var(--aus)">$335,8B</p>
+      <p class="mc-sub">HHI <strong>1.328</strong> <span class="badge b-red">Kritis</span></p>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <p class="card-title">Konsentrasi impor — HHI</p>
+      <p class="card-sub">Makin tinggi = makin rentan. Ambang bahaya: 1.500</p>
+      <div class="hhi-item">
+        <span class="hhi-lbl">IDN Impor</span>
+        <div class="hhi-track"><div class="hhi-fill" style="width:61.4%;background:#c0392b"><span class="hhi-num">1.534</span></div></div>
+      </div>
+      <div class="hhi-item">
+        <span class="hhi-lbl">AUS Ekspor</span>
+        <div class="hhi-track"><div class="hhi-fill" style="width:53.1%;background:#d68910"><span class="hhi-num">1.328</span></div></div>
+      </div>
+      <div class="hhi-item">
+        <span class="hhi-lbl">AUS Impor</span>
+        <div class="hhi-track"><div class="hhi-fill" style="width:40.3%;background:#d68910"><span class="hhi-num">1.007</span></div></div>
+      </div>
+      <div class="hhi-item">
+        <span class="hhi-lbl">IDN Ekspor</span>
+        <div class="hhi-track"><div class="hhi-fill" style="width:35.6%;background:#2e7d32"><span class="hhi-num">890</span></div></div>
+      </div>
+      <div class="legend" style="margin-top:16px">
+        <span class="legend-item"><span class="legend-dot" style="background:#c0392b"></span>Kritis &gt;1.500</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#d68910"></span>Waspada 800–1.500</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#2e7d32"></span>Aman &lt;800</span>
+      </div>
+    </div>
+    <div class="card">
+      <p class="card-title">Top mitra impor Indonesia vs ekspor Australia</p>
+      <p class="card-sub">China mendominasi di kedua sisi secara bersamaan</p>
+      <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--text3);margin-bottom:8px">IDN Impor</p>
+      <div class="bar-item"><span class="bar-lbl">China</span><div class="bar-track"><div class="bar-fill" style="width:72%;background:#c0392b"><span class="bar-pct">36,2%</span></div></div><span class="bar-val">$87,5B</span></div>
+      <div class="bar-item"><span class="bar-lbl">Singapura</span><div class="bar-track"><div class="bar-fill" style="width:15.8%;background:#888"><span class="bar-pct">7,9%</span></div></div><span class="bar-val">$19,2B</span></div>
+      <div class="bar-item"><span class="bar-lbl">Jepang</span><div class="bar-track"><div class="bar-fill" style="width:12%;background:#888"><span class="bar-pct">6,0%</span></div></div><span class="bar-val">$14,5B</span></div>
+      <div style="height:12px"></div>
+      <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--text3);margin-bottom:8px">AUS Ekspor</p>
+      <div class="bar-item"><span class="bar-lbl">China</span><div class="bar-track"><div class="bar-fill" style="width:60.6%;background:#1a5fa8"><span class="bar-pct">30,3%</span></div></div><span class="bar-val">$101,8B</span></div>
+      <div class="bar-item"><span class="bar-lbl">Jepang</span><div class="bar-track"><div class="bar-fill" style="width:15%;background:#888"><span class="bar-pct">7,5%</span></div></div><span class="bar-val">$25,3B</span></div>
+      <div class="bar-item"><span class="bar-lbl">Amerika Serikat</span><div class="bar-track"><div class="bar-fill" style="width:14.8%;background:#888"><span class="bar-pct">7,4%</span></div></div><span class="bar-val">$24,8B</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="card-title">Matriks risiko strategis — ringkasan</p>
+    <p class="card-sub">Berdasarkan analisis HS 6-digit · threshold: nilai &gt;$200M, konsentrasi satu negara &gt;55%</p>
+    <div class="grid-3" style="margin-top:4px;margin-bottom:0">
+      <div>
+        <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--red);margin-bottom:10px">🇮🇩 Indonesia — Impor</p>
+        <div class="matrix-row"><div class="matrix-info"><p class="matrix-name">Infrastruktur Telko</p><p class="matrix-detail">851713/761 · China 99–100% · $3,9B</p></div><span class="badge b-red">Kritis</span></div>
+        <div class="matrix-row"><div class="matrix-info"><p class="matrix-name">Mesin & Alat Berat</p><p class="matrix-detail">842952/847130 · China 73–98% · $3,0B</p></div><span class="badge b-red">Kritis</span></div>
+        <div class="matrix-row"><div class="matrix-info"><p class="matrix-name">Kendaraan Listrik</p><p class="matrix-detail">870380 · China 79,3% · $2,6B</p></div><span class="badge b-red">Kritis</span></div>
+        <div class="matrix-row"><div class="matrix-info"><p class="matrix-name">Gandum (pangan)</p><p class="matrix-detail">100199 · Australia 40% · $3,3B</p></div><span class="badge b-amber">Tinggi</span></div>
+        <div class="matrix-row"><div class="matrix-info"><p class="matrix-name">Kedelai</p><p class="matrix-detail">120190 · AS 86,8% · $1,2B</p></div><span class="badge b-amber">Tinggi</span></div>
+      </div>
+      <div>
+        <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--aus);margin-bottom:10px">🇦🇺 Australia — Ekspor</p>
+        <div class="matrix-row"><div class="matrix-info"><p class="matrix-name">Bijih Besi</p><p class="matrix-detail">260111 · China 86,1% · $74,1B</p></div><span class="badge b-red">Kritis</span></div>
+        <div class="matrix-row"><div class="matrix-info"><p class="matrix-name">Urea Granular</p><p class="matrix-detail">310210 impor · Timteng 63,1% · $1,6B</p></div><span class="badge b-red">Kritis</span></div>
+        <div class="matrix-row"><div class="matrix-info"><p class="matrix-name">Pickup Truck</p><p class="matrix-detail">870421 impor · Thailand 62,9% · $6,2B</p></div><span class="badge b-amber">Tinggi</span></div>
+        <div class="matrix-row"><div class="matrix-info"><p class="matrix-name">Baterai Li-ion</p><p class="matrix-detail">850760 · China 83,5% · $4,9B</p></div><span class="badge b-red">Kritis</span></div>
+        <div class="matrix-row"><div class="matrix-info"><p class="matrix-name">LNG Ekspor</p><p class="matrix-detail">270112 · terdiversifikasi · $41B</p></div><span class="badge b-green">Aman</span></div>
+      </div>
+      <div>
+        <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--chn);margin-bottom:10px">🇨🇳 China — Leverage Ganda</p>
+        <div class="matrix-row"><div class="matrix-info"><p class="matrix-name">Beli ekspor IDN</p><p class="matrix-detail">23,8% ekspor · $67B</p></div><span class="badge b-red">Leverage beli</span></div>
+        <div class="matrix-row"><div class="matrix-info"><p class="matrix-name">Suplai impor IDN</p><p class="matrix-detail">36,2% impor · $87,5B</p></div><span class="badge b-red">Leverage suplai</span></div>
+        <div class="matrix-row"><div class="matrix-info"><p class="matrix-name">Beli ekspor AUS</p><p class="matrix-detail">30,3% ekspor · $101,8B</p></div><span class="badge b-red">Leverage beli</span></div>
+        <div class="matrix-row"><div class="matrix-info"><p class="matrix-name">Double-lock IDN</p><p class="matrix-detail">Suplai + beli bersamaan</p></div><span class="badge b-red">Asimetris</span></div>
+        <div class="matrix-row"><div class="matrix-info"><p class="matrix-name">China HHI sendiri</p><p class="matrix-detail">Imp: 402 · Eksp: 445 — terdiversifikasi</p></div><span class="badge b-green">Aman</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== INDONESIA IMPOR ==================== -->
+<section id="panel-indonesia" class="panel" role="region" aria-labelledby="tab-indonesia" hidden>
+
+  <div class="section-label">Indonesia — profil impor HS6</div>
+  <div class="metric-grid">
+    <div class="mc">
+      <p class="mc-label">Total impor</p>
+      <p class="mc-value" style="color:var(--idn)">$241,6B</p>
+    </div>
+    <div class="mc">
+      <p class="mc-label">Dari China</p>
+      <p class="mc-value">$87,5B</p>
+      <p class="mc-sub"><strong>36,2%</strong> dari total</p>
+    </div>
+    <div class="mc">
+      <p class="mc-label">HHI konsentrasi</p>
+      <p class="mc-value">1.534</p>
+      <p class="mc-sub"><span class="badge b-red">Zona merah</span></p>
+    </div>
+    <div class="mc">
+      <p class="mc-label">HS6 dengan China &gt;80%</p>
+      <p class="mc-value">14</p>
+      <p class="mc-sub">item di atas $200M</p>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <p class="card-title">Top HS6 dari China — share tertinggi</p>
+      <p class="card-sub">Produk dengan dependensi ekstrem pada satu sumber</p>
+      <div class="bar-item"><span class="bar-lbl" title="851761 Base station 4G/5G">851761 Base stn 4G</span><div class="bar-track"><div class="bar-fill" style="width:100%;background:#c0392b"><span class="bar-pct">100%</span></div></div><span class="bar-val">$0,94B</span></div>
+      <div class="bar-item"><span class="bar-lbl" title="851713 Base station telekomunikasi">851713 Base stn telko</span><div class="bar-track"><div class="bar-fill" style="width:99.9%;background:#c0392b"><span class="bar-pct">99,9%</span></div></div><span class="bar-val">$2,98B</span></div>
+      <div class="bar-item"><span class="bar-lbl" title="847130 Laptop / komputer portabel">847130 Laptop</span><div class="bar-track"><div class="bar-fill" style="width:98.6%;background:#c0392b"><span class="bar-pct">98,6%</span></div></div><span class="bar-val">$1,50B</span></div>
+      <div class="bar-item"><span class="bar-lbl" title="847410 Mesin sortir mineral">847410 Mesin mineral</span><div class="bar-track"><div class="bar-fill" style="width:97.6%;background:#c0392b"><span class="bar-pct">97,6%</span></div></div><span class="bar-val">$0,81B</span></div>
+      <div class="bar-item"><span class="bar-lbl" title="381800 Bahan kimia silicon / wafer">381800 Silicon wafer</span><div class="bar-track"><div class="bar-fill" style="width:88%;background:#e74c3c"><span class="bar-pct">88,0%</span></div></div><span class="bar-val">$1,65B</span></div>
+      <div class="bar-item"><span class="bar-lbl" title="870423 Truk diesel besar">870423 Truk diesel</span><div class="bar-track"><div class="bar-fill" style="width:88.5%;background:#e74c3c"><span class="bar-pct">88,5%</span></div></div><span class="bar-val">$0,89B</span></div>
+      <div class="bar-item"><span class="bar-lbl" title="851779 Perangkat komunikasi lainnya">851779 Perangkat telko</span><div class="bar-track"><div class="bar-fill" style="width:86.2%;background:#e74c3c"><span class="bar-pct">86,2%</span></div></div><span class="bar-val">$2,78B</span></div>
+      <div class="bar-item"><span class="bar-lbl" title="870380 Kendaraan listrik / EV">870380 Kendaraan EV</span><div class="bar-track"><div class="bar-fill" style="width:79.3%;background:#e67e22"><span class="bar-pct">79,3%</span></div></div><span class="bar-val">$2,60B</span></div>
+    </div>
+
+    <div class="card">
+      <p class="card-title">Top 20 HS6 — nilai & konsentrasi tertinggi</p>
+      <p class="card-sub">Single-source dependency di atas $200M</p>
+      <div style="overflow-x:auto;max-height:340px;overflow-y:auto">
+        <table class="risk-table">
+          <thead><tr><th>HS6</th><th>Top Supplier</th><th>Share</th><th>Nilai</th></tr></thead>
+          <tbody id="idn-critical-table"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="card-title">Risiko food security Indonesia — impor pangan HS6</p>
+    <p class="card-sub">Dua komoditas pangan dasar bergantung pada dua negara yang berbeda</p>
+    <div class="grid-2" style="margin-bottom:0;margin-top:8px">
+      <div>
+        <p style="font-size:12px;font-weight:600;margin-bottom:10px">Gandum HS100199 — $3,28B</p>
+        <div class="bar-item"><span class="bar-lbl">Australia</span><div class="bar-track"><div class="bar-fill" style="width:40.2%;background:#1a5fa8"><span class="bar-pct">40,2%</span></div></div><span class="bar-val">$1,32B</span></div>
+        <div class="bar-item"><span class="bar-lbl">Canada</span><div class="bar-track"><div class="bar-fill" style="width:22.2%;background:#888"><span class="bar-pct">22,2%</span></div></div><span class="bar-val">$0,73B</span></div>
+        <div class="bar-item"><span class="bar-lbl">Ukraine ⚠</span><div class="bar-track"><div class="bar-fill" style="width:12.2%;background:#c0392b"><span class="bar-pct">12,2%</span></div></div><span class="bar-val">$0,40B</span></div>
+        <div class="bar-item"><span class="bar-lbl">Argentina</span><div class="bar-track"><div class="bar-fill" style="width:11.6%;background:#888"><span class="bar-pct">11,6%</span></div></div><span class="bar-val">$0,38B</span></div>
+        <div class="highlight hl-amber">AUS + Ukraine = <strong>52,4%</strong> — keduanya rentan: cuaca ekstrem &amp; konflik bersenjata</div>
+      </div>
+      <div>
+        <p style="font-size:12px;font-weight:600;margin-bottom:10px">Kedelai HS120190 — $1,19B</p>
+        <div class="bar-item"><span class="bar-lbl">Amerika Serikat</span><div class="bar-track"><div class="bar-fill" style="width:86.8%;background:#c0392b"><span class="bar-pct">86,8%</span></div></div><span class="bar-val">$1,03B</span></div>
+        <div class="bar-item"><span class="bar-lbl">India</span><div class="bar-track"><div class="bar-fill" style="width:8%;background:#888"><span class="bar-pct">7,9%</span></div></div><span class="bar-val">$0,09B</span></div>
+        <div class="bar-item"><span class="bar-lbl">Argentina</span><div class="bar-track"><div class="bar-fill" style="width:2%;background:#888"><span class="bar-pct">2,1%</span></div></div><span class="bar-val">$0,02B</span></div>
+        <div class="highlight hl-red">Kedelai 86,8% dari AS — bahan baku tempe, tahu, pakan. Tidak ada cadangan substitusi yang siap.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== AUSTRALIA EKSPOR ==================== -->
+<section id="panel-australia" class="panel" role="region" aria-labelledby="tab-australia" hidden>
+
+  <div class="section-label">Australia — profil ekspor & impor kritis</div>
+  <div class="metric-grid">
+    <div class="mc">
+      <p class="mc-label">Total ekspor</p>
+      <p class="mc-value" style="color:var(--aus)">$335,8B</p>
+    </div>
+    <div class="mc">
+      <p class="mc-label">Ke China</p>
+      <p class="mc-value">$101,8B</p>
+      <p class="mc-sub"><strong>30,3%</strong> dari total ekspor</p>
+    </div>
+    <div class="mc">
+      <p class="mc-label">Bijih besi ke China</p>
+      <p class="mc-value">$74,1B</p>
+      <p class="mc-sub"><strong>86,1%</strong> dari total ore</p>
+    </div>
+    <div class="mc">
+      <p class="mc-label">HHI ekspor</p>
+      <p class="mc-value">1.328</p>
+      <p class="mc-sub"><span class="badge b-amber">Waspada</span></p>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <p class="card-title">Bijih besi (HS260111) — tujuan ekspor</p>
+      <p class="card-sub">Total $74,1B · dominasi tunggal China sangat berbahaya</p>
+      <div class="bar-item"><span class="bar-lbl">China</span><div class="bar-track"><div class="bar-fill" style="width:86.1%;background:#1a5fa8"><span class="bar-pct">86,1%</span></div></div><span class="bar-val">$63,8B</span></div>
+      <div class="bar-item"><span class="bar-lbl">Jepang</span><div class="bar-track"><div class="bar-fill" style="width:5.3%;background:#888"><span class="bar-pct">5,3%</span></div></div><span class="bar-val">$3,9B</span></div>
+      <div class="bar-item"><span class="bar-lbl">Korea Selatan</span><div class="bar-track"><div class="bar-fill" style="width:5%;background:#888"><span class="bar-pct">5,0%</span></div></div><span class="bar-val">$3,7B</span></div>
+      <div class="bar-item"><span class="bar-lbl">Taiwan</span><div class="bar-track"><div class="bar-fill" style="width:1.4%;background:#888"><span class="bar-pct">1,4%</span></div></div><span class="bar-val">$1,0B</span></div>
+      <div class="bar-item"><span class="bar-lbl">India ↑</span><div class="bar-track"><div class="bar-fill" style="width:1.1%;background:#2e7d32"><span class="bar-pct">1,1%</span></div></div><span class="bar-val">$0,8B</span></div>
+      <div class="highlight hl-red">Jika China diversifikasi ke Guinea/Sierra Leone dalam 5–10 tahun, Australia kehilangan ~$63B pendapatan ekspor tunggal.</div>
+    </div>
+    <div class="card">
+      <p class="card-title">Batubara kokas (HS270112) — tujuan ekspor</p>
+      <p class="card-sub">Total $41,4B · terdiversifikasi dengan baik</p>
+      <div class="bar-item"><span class="bar-lbl">Jepang</span><div class="bar-track"><div class="bar-fill" style="width:30.5%;background:#555"><span class="bar-pct">30,5%</span></div></div><span class="bar-val">$12,6B</span></div>
+      <div class="bar-item"><span class="bar-lbl">India</span><div class="bar-track"><div class="bar-fill" style="width:16.2%;background:#555"><span class="bar-pct">16,2%</span></div></div><span class="bar-val">$6,7B</span></div>
+      <div class="bar-item"><span class="bar-lbl">China</span><div class="bar-track"><div class="bar-fill" style="width:14.8%;background:#888"><span class="bar-pct">14,8%</span></div></div><span class="bar-val">$6,1B</span></div>
+      <div class="bar-item"><span class="bar-lbl">Korea Selatan</span><div class="bar-track"><div class="bar-fill" style="width:10.2%;background:#888"><span class="bar-pct">10,2%</span></div></div><span class="bar-val">$4,2B</span></div>
+      <div class="bar-item"><span class="bar-lbl">Taiwan</span><div class="bar-track"><div class="bar-fill" style="width:7.3%;background:#888"><span class="bar-pct">7,3%</span></div></div><span class="bar-val">$3,0B</span></div>
+      <div class="highlight hl-green">Ekspor batubara AUS terdiversifikasi dengan baik — risiko rendah dibanding bijih besi.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="card-title">Top 20 HS6 impor kritis Australia — single-source dependency</p>
+    <p class="card-sub">Nilai &gt;$200M, satu negara &gt;55%</p>
+    <div style="overflow-x:auto">
+      <table class="risk-table">
+        <thead><tr><th>HS6</th><th>Top Supplier</th><th>Share</th><th>Nilai</th><th>Status</th></tr></thead>
+        <tbody id="aus-critical-table"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== KOMODITAS STRATEGIS ==================== -->
+<section id="panel-komoditas" class="panel" role="region" aria-labelledby="tab-komoditas" hidden>
+
+  <div class="section-label">Kasus Hormuz — komoditas strategis HS6</div>
+
+  <div class="grid-2" style="margin-bottom:20px">
+    <div class="card">
+      <p class="card-title">Urea Granular (HS310210) — impor Australia</p>
+      <p class="card-sub">Total $1,62B · Middle East share 63,1%</p>
+      <div class="bar-item"><span class="bar-lbl">UAE 🇦🇪</span><div class="bar-track"><div class="bar-fill" style="width:23.4%;background:#c0392b"><span class="bar-pct">23,4%</span></div></div><span class="bar-val">$380M</span></div>
+      <div class="bar-item"><span class="bar-lbl">Saudi Arabia 🇸🇦</span><div class="bar-track"><div class="bar-fill" style="width:16.1%;background:#c0392b"><span class="bar-pct">16,1%</span></div></div><span class="bar-val">$261M</span></div>
+      <div class="bar-item"><span class="bar-lbl">Qatar 🇶🇦</span><div class="bar-track"><div class="bar-fill" style="width:14%;background:#c0392b"><span class="bar-pct">14,0%</span></div></div><span class="bar-val">$227M</span></div>
+      <div class="bar-item"><span class="bar-lbl">Brunei</span><div class="bar-track"><div class="bar-fill" style="width:10.2%;background:#888"><span class="bar-pct">10,2%</span></div></div><span class="bar-val">$166M</span></div>
+      <div class="bar-item"><span class="bar-lbl">Malaysia</span><div class="bar-track"><div class="bar-fill" style="width:10.2%;background:#888"><span class="bar-pct">10,2%</span></div></div><span class="bar-val">$166M</span></div>
+      <div class="bar-item" style="border-top:2px solid var(--green);padding-top:8px"><span class="bar-lbl">Indonesia 🇮🇩 ↑</span><div class="bar-track"><div class="bar-fill" style="width:7.9%;background:#2e7d32"><span class="bar-pct">7,9%</span></div></div><span class="bar-val">$128M</span></div>
+      <div class="bar-item"><span class="bar-lbl">Bahrain 🇧🇭</span><div class="bar-track"><div class="bar-fill" style="width:6.3%;background:#c0392b"><span class="bar-pct">6,3%</span></div></div><span class="bar-val">$102M</span></div>
+      <div class="highlight hl-red">Hormuz tertutup = AUS kehilangan 63,1% pasokan urea dalam hitungan minggu. Pupuk tidak bisa diganti musim tanam berikutnya.</div>
+    </div>
+
+    <div class="card">
+      <p class="card-title">Urea Granular (HS310210) — ekspor Indonesia</p>
+      <p class="card-sub">Total $709M · posisi strategic supplier untuk AUS</p>
+      <div class="bar-item"><span class="bar-lbl">India</span><div class="bar-track"><div class="bar-fill" style="width:49.1%;background:#555"><span class="bar-pct">49,1%</span></div></div><span class="bar-val">$348M</span></div>
+      <div class="bar-item" style="border-left:3px solid var(--aus);padding-left:6px"><span class="bar-lbl">Australia 🇦🇺</span><div class="bar-track"><div class="bar-fill" style="width:19%;background:#1a5fa8"><span class="bar-pct">19,0%</span></div></div><span class="bar-val">$135M</span></div>
+      <div class="bar-item"><span class="bar-lbl">Filipina</span><div class="bar-track"><div class="bar-fill" style="width:8.7%;background:#888"><span class="bar-pct">8,7%</span></div></div><span class="bar-val">$62M</span></div>
+      <div class="bar-item"><span class="bar-lbl">Chile</span><div class="bar-track"><div class="bar-fill" style="width:5.7%;background:#888"><span class="bar-pct">5,7%</span></div></div><span class="bar-val">$40M</span></div>
+      <div class="bar-item"><span class="bar-lbl">Thailand</span><div class="bar-track"><div class="bar-fill" style="width:4.5%;background:#888"><span class="bar-pct">4,5%</span></div></div><span class="bar-val">$32M</span></div>
+      <div class="highlight hl-green">IDN sudah mensuplai $135M ke AUS. Jika Hormuz tertutup, kapasitas ekspansi IDN bisa mengisi gap ~$1B dengan pemberitahuan relatif singkat.</div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <p class="card-title">Energi IDN — bahan bakar olahan (HS271012)</p>
+      <p class="card-sub">$13,3B · Risiko Selat Malaka</p>
+      <div class="bar-item"><span class="bar-lbl">Singapura</span><div class="bar-track"><div class="bar-fill" style="width:52.1%;background:#d68910"><span class="bar-pct">52,1%</span></div></div><span class="bar-val">$6,9B</span></div>
+      <div class="bar-item"><span class="bar-lbl">Malaysia</span><div class="bar-track"><div class="bar-fill" style="width:27.9%;background:#d68910"><span class="bar-pct">27,9%</span></div></div><span class="bar-val">$3,7B</span></div>
+      <div class="bar-item"><span class="bar-lbl">Saudi Arabia</span><div class="bar-track"><div class="bar-fill" style="width:6.5%;background:#888"><span class="bar-pct">6,5%</span></div></div><span class="bar-val">$0,9B</span></div>
+      <div class="highlight hl-amber">SG+MYS = 80% fuel olahan IDN — semua melewati Selat Malaka. Jika Malaka terganggu, IDN juga krisis energi sekaligus.</div>
+    </div>
+
+    <div class="card">
+      <p class="card-title">Kokas metallurgical AUS → IDN (HS270112)</p>
+      <p class="card-sub">Australia = sumber baja IDN yang paling kritis</p>
+      <div class="bar-item"><span class="bar-lbl">Australia</span><div class="bar-track"><div class="bar-fill" style="width:42.3%;background:#1a5fa8"><span class="bar-pct">42,3%</span></div></div><span class="bar-val">$1,1B</span></div>
+      <div class="bar-item"><span class="bar-lbl">Rusia</span><div class="bar-track"><div class="bar-fill" style="width:25.9%;background:#c0392b"><span class="bar-pct">25,9%</span></div></div><span class="bar-val">$0,68B</span></div>
+      <div class="bar-item"><span class="bar-lbl">Amerika Serikat</span><div class="bar-track"><div class="bar-fill" style="width:20.5%;background:#888"><span class="bar-pct">20,5%</span></div></div><span class="bar-val">$0,54B</span></div>
+      <div class="bar-item"><span class="bar-lbl">Kanada</span><div class="bar-track"><div class="bar-fill" style="width:8.2%;background:#888"><span class="bar-pct">8,2%</span></div></div><span class="bar-val">$0,22B</span></div>
+      <div class="highlight hl-blue">AUS dominasi 42% kokas IDN — input kritis industri baja. Ini complementarity nyata: IDN perlu AUS untuk baja, AUS perlu IDN untuk pupuk.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CHINA FACTOR ==================== -->
+<section id="panel-china" class="panel" role="region" aria-labelledby="tab-china" hidden>
+
+  <div class="section-label">China factor — leverage asimetris</div>
+
+  <div class="metric-grid">
+    <div class="mc">
+      <p class="mc-label">China beli ekspor IDN</p>
+      <p class="mc-value">$67B</p>
+      <p class="mc-sub"><strong>23,8%</strong> total ekspor IDN</p>
+    </div>
+    <div class="mc">
+      <p class="mc-label">China suplai impor IDN</p>
+      <p class="mc-value">$87,5B</p>
+      <p class="mc-sub"><strong>36,2%</strong> total impor IDN</p>
+    </div>
+    <div class="mc">
+      <p class="mc-label">China beli ekspor AUS</p>
+      <p class="mc-value">$101,8B</p>
+      <p class="mc-sub"><strong>30,3%</strong> total ekspor AUS</p>
+    </div>
+    <div class="mc">
+      <p class="mc-label">HHI China sendiri</p>
+      <p class="mc-value">~424</p>
+      <p class="mc-sub"><span class="badge b-green">Paling terdiversifikasi</span></p>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:20px">
+    <p class="card-title">Double-lock China terhadap Indonesia</p>
+    <p class="card-sub">China satu-satunya negara yang punya leverage suplai <em>dan</em> leverage beli sekaligus terhadap IDN</p>
+    <div class="grid-2" style="margin-top:12px;margin-bottom:0">
+      <div>
+        <p style="font-size:12px;font-weight:600;margin-bottom:10px;color:var(--red)">Sisi suplai — China ke IDN</p>
+        <div class="matrix-row"><div class="matrix-info"><p class="matrix-name">Mesin (HS84)</p><p class="matrix-detail">53,9% dari total impor HS84 IDN</p></div><span class="badge b-red">$19,7B</span></div>
+        <div class="matrix-row"><div class="matrix-info"><p class="matrix-name">Elektronik (HS85)</p><p class="matrix-detail">59,8% dari total impor HS85 IDN</p></div><span class="badge b-red">$19,1B</span></div>
+        <div class="matrix-row"><div class="matrix-info"><p class="matrix-name">Kendaraan (HS87)</p><p class="matrix-detail">termasuk EV 79,3%</p></div><span class="badge b-amber">$4,9B</span></div>
+        <div class="matrix-row"><div class="matrix-info"><p class="matrix-name">Besi & Baja (HS72)</p><p class="matrix-detail">40,2% dari total impor HS72 IDN</p></div><span class="badge b-amber">$3,8B</span></div>
+        <div class="highlight hl-red" style="margin-top:10px">Jika China cut suplai: industri manufaktur IDN bisa terhenti dalam 30–90 hari.</div>
+      </div>
+      <div>
+        <p style="font-size:12px;font-weight:600;margin-bottom:10px;color:var(--aus)">Sisi beli — China dari IDN</p>
+        <div class="matrix-row"><div class="matrix-info"><p class="matrix-name">Batubara (HS27)</p><p class="matrix-detail">China buyer terbesar ekspor batubara IDN</p></div><span class="badge b-red">~$15B</span></div>
+        <div class="matrix-row"><div class="matrix-info"><p class="matrix-name">Nikel (HS75)</p><p class="matrix-detail">China ~80% buyer nikel olahan IDN</p></div><span class="badge b-red">~$8B</span></div>
+        <div class="matrix-row"><div class="matrix-info"><p class="matrix-name">Palm Oil (HS15)</p><p class="matrix-detail">China top-3 buyer CPO IDN</p></div><span class="badge b-amber">~$4B</span></div>
+        <div class="matrix-row"><div class="matrix-info"><p class="matrix-name">Bijih besi (HS26)</p><p class="matrix-detail">China dominan buyer ore IDN</p></div><span class="badge b-amber">~$3B</span></div>
+        <div class="highlight hl-red" style="margin-top:10px">Jika China stop beli: devisa IDN turun tajam, nilai rupiah tertekan bersamaan.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="card-title">Skenario tekanan China — perbandingan IDN vs AUS</p>
+    <p class="card-sub">Seberapa parah dampak jika China gunakan leverage ekonominya?</p>
+    <div style="overflow-x:auto;margin-top:8px">
+      <table class="risk-table">
+        <thead>
+          <tr>
+            <th>Skenario</th>
+            <th>Dampak ke Indonesia</th>
+            <th>Dampak ke Australia</th>
+            <th>Perbedaan kunci</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>China stop beli ekspor</strong></td>
+            <td><span class="badge b-red">Berat</span> — $67B hilang, rupiah tertekan</td>
+            <td><span class="badge b-red">Sangat berat</span> — $101B ore/coal hilang</td>
+            <td>AUS lebih besar nominal, IDN lebih rapuh struktural</td>
+          </tr>
+          <tr>
+            <td><strong>China stop suplai impor</strong></td>
+            <td><span class="badge b-red">Kritis</span> — industri mati, tidak ada substitusi cepat</td>
+            <td><span class="badge b-amber">Berat</span> — EV &amp; elektronik terganggu</td>
+            <td>IDN jauh lebih tergantung di sisi suplai industri</td>
+          </tr>
+          <tr>
+            <td><strong>China lakukan keduanya sekaligus (double lock)</strong></td>
+            <td><span class="badge b-red">Sistemik</span> — krisis devisa + krisis industri bersamaan</td>
+            <td><span class="badge b-amber">Serius</span> — tapi AUS punya buffer dari AS &amp; Jepang</td>
+            <td>IDN tidak punya buffer setara; AUS punya AUKUS &amp; Quad</td>
+          </tr>
+          <tr>
+            <td><strong>China diversifikasi sumber bijih besi</strong></td>
+            <td>Minimal dampak langsung</td>
+            <td><span class="badge b-red">Kritis jangka panjang</span> — $74B at risk</td>
+            <td>AUS punya 5–10 tahun jendela untuk diversifikasi ekspor</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="highlight hl-amber" style="margin-top:16px">
+      <strong>Kesimpulan:</strong> China adalah titik tekanan tunggal terbesar untuk kedua negara, namun mekanisme tekanannya berbeda. Untuk IDN: double-lock (suplai+beli). Untuk AUS: single-lock tapi nominal sangat besar (bijih besi). Keduanya perlu strategi diversifikasi aktif dalam 5–10 tahun ke depan.
+    </div>
+  </div>
+</section>
+
+</main><!-- end main -->
+
+<footer class="footer">
+  Data: UN Comtrade · Analisis: HS 6-digit · Periode: 2025 · Dashboard dibuat untuk diskusi geoeconomics IDN–AUS–CHN
+</footer>
+
+<script>
+const hs6Names = {
+  '851713':'Base station telekomunikasi','851779':'Perangkat komunikasi','870380':'Kendaraan listrik (EV)',
+  '847130':'Laptop / komputer portabel','381800':'Bahan kimia silicon (wafer)','842952':'Excavator / alat berat',
+  '851761':'Base station 4G/5G','851762':'Mesin telekomunikasi','841989':'Mesin industri lainnya',
+  '847410':'Mesin sortir mineral','870423':'Truk diesel >5 ton','852990':'Suku cadang elektronik',
+  '730890':'Konstruksi baja','940690':'Prefab structures','890190':'Kapal kargo','847989':'Mesin khusus',
+  '850440':'Trafo listrik','854449':'Kabel elektrik','720711':'Billet baja','854330':'Mesin listrik',
+  '230400':'Bungkil kedelai','271112':'Gas alam cair (LNG)','271113':'Gas alam cair (LNG) lainnya',
+  '260111':'Bijih besi non-aglomerat','120190':'Kedelai (soybeans)','847149':'Mesin komputer',
+  '720712':'Baja semi-finished','847149':'Komponen komputer','850440':'Trafo listrik',
+  '870421':'Pickup truck','850760':'Baterai lithium-ion','847130':'Laptop','870380':'EV',
+  '999999':'Unspecified','890520':'Kapal pengeboran','870410':'Dump truck','950300':'Mainan / toys',
+  '300439':'Obat-obatan','300212':'Antibodi monoklonal','841590':'AC unit','732690':'Barang besi lainnya',
+  '870451':'Truk listrik','854449':'Kabel listrik','380893':'Herbisida','880730':'Aircraft parts',
+  '710813':'Emas / perhiasan','847330':'Ink cartridge / peripheral','930690':'Amunisi'
+};
+
+const partnerColor = {
+  'China':'#c0392b','United States':'#1a5fa8','Australia':'#1a5fa8','Thailand':'#d68910',
+  'Japan':'#555','Singapore':'#d68910','Korea, Rep.':'#555','Italy':'#888',
+  'Brazil':'#2e7d32','United Arab Emirates':'#c0392b','Saudi Arabia':'#c0392b',
+  'Indonesia':'#2e7d32','Oman':'#d68910','Malaysia':'#d68910','Unspecified':'#aaa'
+};
+
+function getColor(partner, share) {
+  if (partnerColor[partner]) return partnerColor[partner];
+  if (share >= 80) return '#c0392b';
+  if (share >= 60) return '#d68910';
+  return '#888';
+}
+
+function getBadgeClass(partner, share) {
+  if (['China','Saudi Arabia','United Arab Emirates','Qatar','Iran','Iraq'].includes(partner) && share >= 70) return 'b-red';
+  if (share >= 80) return 'b-red';
+  if (share >= 60) return 'b-amber';
+  return 'b-blue';
+}
+
+// Populate IDN critical table
+const idnData = [
+  {hs6:'851713',partner:'China',share:99.9,value:2.98},{hs6:'851779',partner:'China',share:86.2,value:2.78},
+  {hs6:'870380',partner:'China',share:79.3,value:2.60},{hs6:'230400',partner:'Brazil',share:65.6,value:2.24},
+  {hs6:'271112',partner:'United States',share:68.4,value:1.91},{hs6:'271113',partner:'United States',share:68.7,value:1.91},
+  {hs6:'381800',partner:'China',share:88.0,value:1.65},{hs6:'847130',partner:'China',share:98.6,value:1.50},
+  {hs6:'842952',partner:'China',share:73.4,value:1.49},{hs6:'260111',partner:'Australia',share:70.4,value:1.28},
+  {hs6:'120190',partner:'United States',share:86.8,value:1.19},{hs6:'852990',partner:'China',share:69.4,value:1.02},
+  {hs6:'841989',partner:'China',share:81.2,value:1.00},{hs6:'720712',partner:'Oman',share:56.1,value:0.96},
+  {hs6:'851761',partner:'China',share:100.0,value:0.94},{hs6:'870423',partner:'China',share:88.5,value:0.89},
+  {hs6:'847989',partner:'China',share:72.9,value:0.86},{hs6:'890190',partner:'China',share:74.3,value:0.86},
+  {hs6:'850440',partner:'China',share:67.5,value:0.85},{hs6:'854449',partner:'China',share:73.5,value:0.75}
+];
+
+const tbody1 = document.getElementById('idn-critical-table');
+idnData.forEach(r => {
+  const bc = getBadgeClass(r.partner, r.share);
+  const name = hs6Names[r.hs6] || r.hs6;
+  tbody1.innerHTML += `<tr>
+    <td><span class="mono">${r.hs6}</span><br><span style="font-size:11px;color:var(--text2)">${name}</span></td>
+    <td>${r.partner}</td>
+    <td><span class="badge ${bc}">${r.share}%</span></td>
+    <td style="font-weight:600">$${r.value}B</td>
+  </tr>`;
+});
+
+// Populate AUS critical table
+const ausData = [
+  {hs6:'870421',partner:'Thailand',share:62.9,value:6.16},{hs6:'850760',partner:'China',share:83.5,value:4.89},
+  {hs6:'851713',partner:'China',share:81.3,value:4.53},{hs6:'847130',partner:'China',share:85.5,value:4.24},
+  {hs6:'870380',partner:'China',share:75.9,value:3.36},{hs6:'890520',partner:'Singapore',share:98.2,value:1.93},
+  {hs6:'870410',partner:'United States',share:66.8,value:1.45},{hs6:'950300',partner:'China',share:80.9,value:1.42},
+  {hs6:'300439',partner:'Italy',share:60.3,value:1.05},{hs6:'300212',partner:'United States',share:65.3,value:0.98},
+  {hs6:'841590',partner:'Thailand',share:65.8,value:0.94},{hs6:'732690',partner:'China',share:59.9,value:0.89},
+  {hs6:'870451',partner:'China',share:75.7,value:0.86},{hs6:'854449',partner:'China',share:81.1,value:0.85},
+  {hs6:'380893',partner:'China',share:63.5,value:0.80},{hs6:'880730',partner:'United States',share:71.5,value:0.80},
+  {hs6:'710813',partner:'United Kingdom',share:64.0,value:0.75},{hs6:'847330',partner:'China',share:64.7,value:0.74},
+  {hs6:'930690',partner:'United States',share:73.8,value:0.71}
+];
+
+const tbody2 = document.getElementById('aus-critical-table');
+ausData.forEach(r => {
+  if (r.hs6 === '999999') return;
+  const bc = getBadgeClass(r.partner, r.share);
+  const name = hs6Names[r.hs6] || r.hs6;
+  const risk = r.share >= 80 ? '<span class="badge b-red">Kritis</span>' : r.share >= 65 ? '<span class="badge b-amber">Tinggi</span>' : '<span class="badge b-blue">Sedang</span>';
+  tbody2.innerHTML += `<tr>
+    <td><span class="mono">${r.hs6}</span><br><span style="font-size:11px;color:var(--text2)">${name}</span></td>
+    <td>${r.partner}</td>
+    <td><span class="badge ${bc}">${r.share}%</span></td>
+    <td style="font-weight:600">$${r.value}B</td>
+    <td>${risk}</td>
+  </tr>`;
+});
+
+function showPanel(id, trigger) {
+  document.querySelectorAll('.panel').forEach(p => {
+    p.classList.remove('active');
+    p.hidden = true;
+  });
+  document.querySelectorAll('.nav-btn').forEach(b => {
+    b.classList.remove('active');
+    b.setAttribute('aria-selected', 'false');
+  });
+  const panel = document.getElementById('panel-' + id);
+  panel.classList.add('active');
+  panel.hidden = false;
+  trigger.classList.add('active');
+  trigger.setAttribute('aria-selected', 'true');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+</script>
+</body>
+</html>
