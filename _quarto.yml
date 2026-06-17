@@ -25,6 +25,8 @@ website:
         text: Research
       - href: /people.qmd
         text: People
+      - href: /fellows.qmd
+        text: Fellows
       - href: /news/index.qmd
         text: News
       - href: /geoeconomics/

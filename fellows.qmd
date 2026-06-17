@@ -1,0 +1,53 @@
+---
+title: "Fellows"
+subtitle: "Visiting scholars and external collaborators working with DEN Economics Lab"
+toc: false
+---
+
+Our fellows are economists and researchers based outside DEN who collaborate
+with the lab on specific projects. Each brings independent expertise to applied
+work on the Indonesian economy.
+
+::: {.fellows-grid}
+
+::: {.fellow-card}
+![Fellow Name](images/fellows/placeholder.svg){.fellow-photo fig-alt="Photo of the fellow"}
+
+[Fellow Name]{.fellow-name}
+
+[University / Institution]{.fellow-affiliation}
+
+[One- or two-sentence bio: field of expertise, current position, and relevant background.]{.fellow-bio}
+
+::: {.fellow-project}
+[Project at DEN]{.fellow-project-label}
+[Short title of the project this fellow is working on with the lab.]{.fellow-project-title}
+:::
+:::
+
+::: {.fellow-card}
+![Fellow Name](images/fellows/placeholder.svg){.fellow-photo fig-alt="Photo of the fellow"}
+
+[Fellow Name]{.fellow-name}
+
+[University / Institution]{.fellow-affiliation}
+
+[One- or two-sentence bio: field of expertise, current position, and relevant background.]{.fellow-bio}
+
+::: {.fellow-project}
+[Project at DEN]{.fellow-project-label}
+[Short title of the project this fellow is working on with the lab.]{.fellow-project-title}
+:::
+:::
+
+:::
+
+## Become a fellow
+
+We host external researchers working on Indonesian macroeconomics, trade, and
+applied policy. If you would like to collaborate on a project with the lab, get
+in touch:
+
+- General inquiries: <den.econ@dewanekonomi.go.id>
+- Lead researcher: <krisna@dewanekonomi.go.id>
+- GitHub: [github.com/den-econ](https://github.com/den-econ)

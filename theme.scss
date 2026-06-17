@@ -291,6 +291,81 @@ $navbar-hl:                  $den-gold;
   }
 }
 
+// Fellows grid — like people, but with real photos, an affiliation, and a project block
+.fellows-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.fellow-card {
+  text-align: center;
+  background: #FFFFFF;
+  border: 1px solid #EEE;
+  border-top: 3px solid $den-gold;
+  border-radius: 8px;
+  padding: 1.5rem 1.25rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  }
+
+  .fellow-photo {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: $den-cream;
+    margin: 0 auto 0.85rem auto;
+    display: block;
+    border: 3px solid $den-light-gold;
+  }
+
+  .fellow-name {
+    font-weight: 600;
+    color: $den-dark-grey;
+    margin: 0;
+  }
+
+  .fellow-affiliation {
+    color: $den-deep-amber;
+    font-size: 0.9rem;
+    margin: 0.25rem 0 0.6rem 0;
+  }
+
+  .fellow-bio {
+    font-size: 0.85rem;
+    color: $den-dark-grey;
+    margin-bottom: 0.85rem;
+  }
+
+  .fellow-project {
+    text-align: left;
+    background: $den-cream;
+    border-radius: 6px;
+    padding: 0.6rem 0.75rem;
+    margin-top: 0.75rem;
+
+    .fellow-project-label {
+      display: block;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: $den-dark-brown;
+      margin-bottom: 0.2rem;
+    }
+
+    .fellow-project-title {
+      font-size: 0.85rem;
+      color: $den-dark-grey;
+      line-height: 1.4;
+    }
+  }
+}
+
 // Listing pages (Quarto's built-in)
 .quarto-listing {
   .quarto-listing-default {
