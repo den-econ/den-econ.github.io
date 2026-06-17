@@ -128,13 +128,3 @@ supervised research, and open-source tooling (`fig-den`, `ggden`).
 ::: {.text-center .mt-4}
 [All publications](research.qmd){.btn .btn-primary}
 :::
-
-::: {.section-header}
-## Latest News
-
-[Seminars, awards, and lab updates]{.subtitle}
-:::
-
-::: {.text-center .mt-2}
-[See all news →](news/index.qmd){.btn .btn-outline-primary}
-:::

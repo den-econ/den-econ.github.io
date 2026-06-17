@@ -1,0 +1,37 @@
+---
+title: "Events"
+subtitle: "Seminars, workshops, and lab activities"
+toc: false
+---
+
+::: {.section-header}
+## Upcoming
+
+[Current and future events]{.subtitle}
+:::
+
+<!-- Add upcoming events here. Newest dates at the top.
+     Copy one block per event:
+
+::: {.publication}
+[Event name]{.pub-title}
+
+[Day Month Year · HH:MM WIB]{.pub-meta}
+:::
+
+When an event has passed, move its block down to the Past section below. -->
+
+::: {.publication}
+[Example: DEN Economics Lab seminar]{.pub-title}
+
+[1 July 2026 · 14:00 WIB]{.pub-meta}
+:::
+
+::: {.section-header}
+## Past
+
+[Previous events]{.subtitle}
+:::
+
+<!-- Move finished events here (most recent first). -->
+</content>

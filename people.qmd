@@ -4,7 +4,27 @@ subtitle: "The researchers and students behind DEN Economics Lab"
 toc: false
 ---
 
-## Faculty & senior researchers
+## Advisory board
+
+::: {.people-grid}
+::: {.person-card}
+[FH]{.person-avatar}
+
+[Mochammad Firman Hidayat]{.person-name}
+
+[Advisory board]{.person-role}
+:::
+
+::: {.person-card}
+[AY]{.person-avatar}
+
+[Arief Anshory Yusuf]{.person-name}
+
+[Advisory board]{.person-role}
+:::
+:::
+
+## Lead
 
 ::: {.people-grid}
 ::: {.person-card}
@@ -14,71 +34,101 @@ toc: false
 
 [Lead researcher · DEN]{.person-role}
 
-[Macroeconomics, trade policy, CGE. PhD in Economics.]{.person-bio}
-:::
-
-::: {.person-card}
-[DR]{.person-avatar}
-
-[Dinda Rachmania]{.person-name}
-
-[Senior researcher]{.person-role}
-
-[Climate economics, CGE modeling, distributional analysis.]{.person-bio}
-:::
-
-::: {.person-card}
-[SA]{.person-avatar}
-
-[Siti Aminah]{.person-name}
-
-[Senior researcher]{.person-role}
-
-[Public finance, fiscal decentralisation, quasi-experimental methods.]{.person-bio}
-:::
-
-::: {.person-card}
-[BS]{.person-avatar}
-
-[Budi Santoso]{.person-name}
-
-[Affiliated researcher]{.person-role}
-
-[Labour economics, education policy, panel data methods.]{.person-bio}
+[Macroeconomics, trade policy, CGE.]{.person-bio}
 :::
 :::
 
-## Researchers & analysts
+## Manager
 
 ::: {.people-grid}
 ::: {.person-card}
-[AP]{.person-avatar}
+[SU]{.person-avatar}
 
-[Arya Pratama]{.person-name}
+[Sunni]{.person-name}
 
-[Research economist]{.person-role}
-
-[Gravity models, applied trade econometrics.]{.person-bio}
-:::
-
-::: {.person-card}
-[YP]{.person-avatar}
-
-[Yudo Prabowo]{.person-name}
-
-[Research economist]{.person-role}
-
-[Energy economics, sectoral modeling.]{.person-bio}
+[Research manager]{.person-role}
 :::
 :::
 
-## Research assistants & students
+## Senior researchers
 
 ::: {.people-grid}
 ::: {.person-card}
-[RA]{.person-avatar}
+[AM]{.person-avatar}
 
-[Research Assistant]{.person-name}
+[Alfan Mansur]{.person-name}
+
+[Senior researcher]{.person-role}
+:::
+
+::: {.person-card}
+[BM]{.person-avatar}
+
+[Bertha Fania Maula]{.person-name}
+
+[Senior researcher]{.person-role}
+:::
+
+::: {.person-card}
+[PU]{.person-avatar}
+
+[Putri]{.person-name}
+
+[Senior researcher]{.person-role}
+:::
+:::
+
+## Researchers
+
+::: {.people-grid}
+::: {.person-card}
+[MA]{.person-avatar}
+
+[Meizahra Afidatie]{.person-name}
+
+[Researcher]{.person-role}
+:::
+
+::: {.person-card}
+[TG]{.person-avatar}
+
+[Timothy Kinmekita Ginting]{.person-name}
+
+[Researcher]{.person-role}
+:::
+
+::: {.person-card}
+[DP]{.person-avatar}
+
+[Devy Pratiwi]{.person-name}
+
+[Researcher]{.person-role}
+:::
+
+::: {.person-card}
+[HA]{.person-avatar}
+
+[M. Hafizh Ghifari Azizi]{.person-name}
+
+[Researcher]{.person-role}
+:::
+
+::: {.person-card}
+[SN]{.person-avatar}
+
+[Shakuntala Anjani Nindraswari]{.person-name}
+
+[Researcher]{.person-role}
+:::
+:::
+
+## Interns
+
+::: {.people-grid}
+::: {.person-card}
+[—]{.person-avatar}
+
+[Intern]{.person-name}
 
 [Open position]{.person-role}
 
@@ -95,3 +145,5 @@ to collaborate, get in touch:
 - General inquiries: <den.econ@dewanekonomi.go.id>
 - Lead researcher: <krisna@dewanekonomi.go.id>
 - GitHub: [github.com/den-econ](https://github.com/den-econ)
+</content>
+</invoke>

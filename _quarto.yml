@@ -19,24 +19,24 @@ website:
     pinned: true
     title: "DEN Economics Lab"
     left:
-      - href: /index.qmd
+      - href: index.qmd
         text: Home
-      - href: /research.qmd
+      - href: research.qmd
         text: Research
-      - href: /people.qmd
+      - href: people.qmd
         text: People
-      - href: /fellows.qmd
+      - href: fellows.qmd
         text: Fellows
-      - href: /news/index.qmd
-        text: News
-      - href: /geoeconomics/
+      - href: events.qmd
+        text: Events
+      - href: geoeconomics/index.html
         text: Geoeconomics
     right:
       - icon: github
         href: https://github.com/den-econ
         aria-label: GitHub
       - icon: envelope
-        href: mailto:den.econ@dewanekonomi.go.id
+        href: mailto:krisna@dewanekonomi.go.id
         aria-label: Email
 
   page-footer:
@@ -44,9 +44,9 @@ website:
     left: |
       © 2026 DEN Economics Lab · Dewan Ekonomi Nasional
     center: |
-      [Home](/index.qmd) · [Research](/research.qmd) · [People](/people.qmd) · [News](/news/index.qmd)
+      [Home](index.qmd) · [Research](research.qmd) · [People](people.qmd)
     right: |
-      [GitHub](https://github.com/den-econ) · <den.econ@dewanekonomi.go.id>
+      [GitHub](https://github.com/den-econ) · <krisna@dewanekonomi.go.id>
 
 format:
   html:
