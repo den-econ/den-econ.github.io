@@ -26,22 +26,22 @@ to inform decisions across government and the broader Indonesian economy.
 
 ::: {.stats}
 ::: {.stat}
-[12+]{.stat-number}
+[1+]{.stat-number}
 
 [Researchers]{.stat-label}
 :::
 ::: {.stat}
-[50+]{.stat-number}
+[1+]{.stat-number}
 
 [Publications]{.stat-label}
 :::
 ::: {.stat}
-[8]{.stat-number}
+[1]{.stat-number}
 
 [Active Projects]{.stat-label}
 :::
 ::: {.stat}
-[15+]{.stat-number}
+[1+]{.stat-number}
 
 [Partner Institutions]{.stat-label}
 :::
