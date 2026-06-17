@@ -7,102 +7,48 @@ toc-location: right
 
 ## Research themes
 
-The lab organises its work around four overlapping themes. Most projects sit at
+The lab organises its work around three overlapping themes. Most projects sit at
 the intersection of two or more.
 
-- **Macroeconomic policy** — fiscal, monetary, and growth diagnostics.
-- **Trade & industrial policy** — CGE modeling (GTAP-RD/GDyn-FS), tariff
-  analysis, structural transformation.
-- **Applied econometrics** — panel methods, gravity, and causal inference for
-  Indonesian micro and macro data.
-- **Climate & energy** — distributional effects of carbon pricing and the
-  green transition in developing economies.
-
-## Published work
-
-::: {.publication}
-[Trade Liberalisation and Household Welfare in Indonesia: Evidence from District-Level Panel Data]{.pub-title}
-
-[Krisna Gupta, Dinda Rachmania, Arya Pratama]{.pub-authors}
-
-[Journal of Development Economics · 2024]{.pub-meta}
-
-[We exploit variation in tariff reductions to identify the causal effect of trade openness on household consumption and poverty rates across 500+ Indonesian districts from 2000–2020.]{.pub-abstract}
-
-[Trade]{.tag} [Indonesia]{.tag} [Causal Inference]{.tag}
-:::
-
-::: {.publication}
-[Fiscal Decentralisation, Local Governance Quality, and Public Service Delivery]{.pub-title}
-
-[Siti Aminah, Budi Santoso, Krisna Gupta]{.pub-authors}
-
-[World Development · 2024]{.pub-meta}
-
-[Using a regression-discontinuity design around population thresholds that determine local government tiers, we estimate the effect of decentralisation on health and education outcomes.]{.pub-abstract}
-
-[Fiscal Policy]{.tag} [Public Finance]{.tag} [RDD]{.tag}
-:::
-
-::: {.publication}
-[Carbon Pricing in a Developing Economy: Labour Market and Distributional Effects]{.pub-title}
-
-[Dinda Rachmania, Yudo Prabowo]{.pub-authors}
-
-[Energy Policy · 2023]{.pub-meta}
-
-[A CGE model calibrated to the Indonesian input-output table assesses how alternative carbon-pricing schemes affect wages, employment, and income distribution across sectors.]{.pub-abstract}
-
-[Climate]{.tag} [CGE]{.tag} [Labour Economics]{.tag}
-:::
-
-::: {.publication}
-[Long-run Effects of the Indonesia–US ART on Bilateral Trade Flows]{.pub-title}
-
-[Krisna Gupta, Arya Pratama]{.pub-authors}
-
-[Asian Economic Journal · 2023]{.pub-meta}
-
-[Gravity estimation with `ppmlhdfe` and three-way fixed effects, using HS-6
-product-level trade data over 2000–2022.]{.pub-abstract}
-
-[Trade]{.tag} [Gravity]{.tag} [ASEAN]{.tag}
-:::
+- **Macroeconomic policy** — fiscal, monetary, growth diagnostics, and
+  forecasting for national and subnational economies.
+- **Trade & industrial policy** — CGE modeling (GTAP-RD/GDyn-FS), tariff and
+  reciprocal-tariff analysis, structural transformation.
+- **Applied econometrics & labour** — panel methods, gravity, and policy
+  analysis for Indonesian micro and macro data, including wage and minimum-wage
+  policy.
 
 ## Working papers
 
 ::: {.publication}
-[Heterogeneous Pass-through of Exchange-rate Shocks in Indonesian Manufacturing]{.pub-title}
+[[Forecasting Indonesian National and Provincial GDP using nighttime light index](https://dewanekonomi.go.id/publikasi/forecasting-indonesian-national-and-provincial-gdp-using-nighttime-light-index)]{.pub-title}
 
-[DEN Working Paper · 2026]{.pub-meta}
+[I Made Krisna Gupta, Timothy Kinmekita Ginting, Meizahra Afidatie]{.pub-authors}
 
-[A heterogeneous-agent New-Keynesian model with imported intermediate inputs,
-calibrated to Indonesian firm-level data, to quantify the role of input
-exposure in exchange-rate pass-through.]{.pub-abstract}
+[DEN Working Paper · 9 February 2026]{.pub-meta}
 
-[Macro]{.tag} [HANK]{.tag} [Pass-through]{.tag}
+[Macro]{.tag} [Forecasting]{.tag} [Nighttime Lights]{.tag}
 :::
 
 ::: {.publication}
-[Climate-Aware GTAP: Extending GDyn-FS for Indonesia's NDC]{.pub-title}
+[[Alpha (α): Operasionalisasi Parameter Passthrough dari Pertumbuhan Ekonomi ke Penyesuaian Upah Minimum di Indonesia](https://dewanekonomi.go.id/publikasi/alpha-a-operasionalisasi-parameter-passthrough-dari-pertumbuhan-ekonomi-ke-penyesuaian-upah-minimum-di-indonesia)]{.pub-title}
 
-[DEN Working Paper · 2026]{.pub-meta}
+[Arief Anshory Yusuf, Mochammad Firman Hidayat, Bertha Fania Maula, Meizahra Afidatie, Devy Pratiwi]{.pub-authors}
 
-[A dynamic CGE extension with sector-specific abatement curves, applied to
-Indonesia's Nationally Determined Contribution under different financing
-assumptions.]{.pub-abstract}
+[DEN Working Paper · 19 December 2025]{.pub-meta}
 
-[Climate]{.tag} [CGE]{.tag} [GTAP]{.tag}
+[Labour Economics]{.tag} [Minimum Wage]{.tag} [Macro]{.tag}
 :::
 
-## Active projects
+::: {.publication}
+[[Simulasi dampak Tarif Resiprokal Amerika Serikat terhadap perekonomian Indonesia dengan model GTAP](https://dewanekonomi.go.id/publikasi/simulasi-dampak-tarif-resiprokal-amerika-serikat-terhadap-perekonomian-indonesia-dengan-model-gtap)]{.pub-title}
 
-| Project | Lead | Partners | Status |
-|---|---|---|---|
-| Industrial policy & downstream value chains | K. Gupta | Bappenas, ERIA | Ongoing |
-| Indonesia–US ART impact assessment | A. Pratama | DEN | Ongoing |
-| Carbon pricing & just transition | D. Rachmania | World Bank | Year 1 of 3 |
-| Digital financial inclusion in rural Indonesia | S. Aminah | OJK | Field work |
+[I Made Krisna Gupta, Arief Anshory Yusuf, Mochammad Firman Hidayat, M. Hafizh Ghifari Azizi, Shakuntala Anjani Nindraswari]{.pub-authors}
+
+[DEN Working Paper · 20 October 2025]{.pub-meta}
+
+[Trade]{.tag} [CGE]{.tag} [GTAP]{.tag}
+:::
 
 ## Open-source tooling
 
