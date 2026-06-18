@@ -11,7 +11,7 @@ work on the Indonesian economy.
 ::: {.fellows-grid}
 
 ::: {.fellow-card}
-![Adhi Nugroho Saputro](images/fellows/placeholder.svg){.fellow-photo fig-alt="Photo of Adhi Nugroho Saputro"}
+![Adhi Nugroho Saputro](images/fellows/adhi.png){.fellow-photo fig-alt="Photo of Adhi Nugroho Saputro"}
 
 [Adhi Nugroho Saputro]{.fellow-name}
 
@@ -28,7 +28,7 @@ work on the Indonesian economy.
 :::
 
 ::: {.fellow-card}
-![Andhini Novrita Zurman Nasution](images/fellows/placeholder.svg){.fellow-photo fig-alt="Photo of Andhini Novrita Zurman Nasution"}
+![Andhini Novrita Zurman Nasution](images/fellows/andhini.png){.fellow-photo fig-alt="Photo of Andhini Novrita Zurman Nasution"}
 
 [Andhini Novrita Zurman Nasution]{.fellow-name}
 
@@ -45,7 +45,7 @@ work on the Indonesian economy.
 :::
 
 ::: {.fellow-card}
-![Sufintri Rahayu](images/fellows/placeholder.svg){.fellow-photo fig-alt="Photo of Sufintri Rahayu"}
+![Sufintri Rahayu](images/fellows/fifin.png){.fellow-photo fig-alt="Photo of Sufintri Rahayu"}
 
 [Sufintri Rahayu]{.fellow-name}
 
@@ -62,7 +62,7 @@ work on the Indonesian economy.
 :::
 
 ::: {.fellow-card}
-![Muhammad Halley Yudhistira](images/fellows/placeholder.svg){.fellow-photo fig-alt="Photo of Muhammad Halley Yudhistira"}
+![Muhammad Halley Yudhistira](images/fellows/yudhis.png){.fellow-photo fig-alt="Photo of Muhammad Halley Yudhistira"}
 
 [Muhammad Halley Yudhistira]{.fellow-name}
 
@@ -86,6 +86,5 @@ We host external researchers working on Indonesian macroeconomics, trade, and
 applied policy. If you would like to collaborate on a project with the lab, get
 in touch:
 
-- General inquiries: <den.econ@dewanekonomi.go.id>
-- Lead researcher: <krisna@dewanekonomi.go.id>
+- General inquiries: <krisna@dewanekonomi.go.id>
 - GitHub: [github.com/den-econ](https://github.com/den-econ)
