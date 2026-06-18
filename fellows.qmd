@@ -11,32 +11,70 @@ work on the Indonesian economy.
 ::: {.fellows-grid}
 
 ::: {.fellow-card}
-![Fellow Name](images/fellows/placeholder.svg){.fellow-photo fig-alt="Photo of the fellow"}
+![Adhi Nugroho Saputro](images/fellows/placeholder.svg){.fellow-photo fig-alt="Photo of Adhi Nugroho Saputro"}
 
-[Fellow Name]{.fellow-name}
+[Adhi Nugroho Saputro]{.fellow-name}
 
-[University / Institution]{.fellow-affiliation}
+[PROSPERA — Australia Indonesia Partnership for Economic Development]{.fellow-affiliation}
 
-[One- or two-sentence bio: field of expertise, current position, and relevant background.]{.fellow-bio}
+[Expertise: rigorous quantitative methods, macro-financial analysis, growth diagnostics, and fiscal & tax policy.]{.fellow-bio}
 
 ::: {.fellow-project}
-[Project at DEN]{.fellow-project-label}
-[Short title of the project this fellow is working on with the lab.]{.fellow-project-title}
+[Research at DEN]{.fellow-project-label}
+[Financial Programming and Policies (FPP); Rupiah Plus Policy.]{.fellow-project-title}
+[Placement]{.fellow-project-label}
+[Bidang Percepatan Program Prioritas Ekonomi]{.fellow-project-title}
 :::
 :::
 
 ::: {.fellow-card}
-![Fellow Name](images/fellows/placeholder.svg){.fellow-photo fig-alt="Photo of the fellow"}
+![Andhini Novrita Zurman Nasution](images/fellows/placeholder.svg){.fellow-photo fig-alt="Photo of Andhini Novrita Zurman Nasution"}
 
-[Fellow Name]{.fellow-name}
+[Andhini Novrita Zurman Nasution]{.fellow-name}
 
-[University / Institution]{.fellow-affiliation}
+[University of Edinburgh, School of Mathematics]{.fellow-affiliation}
 
-[One- or two-sentence bio: field of expertise, current position, and relevant background.]{.fellow-bio}
+[Expertise: computational fluid dynamics (CFD), fluid-structure interaction (FSI), machine learning, and high-performance computing.]{.fellow-bio}
 
 ::: {.fellow-project}
-[Project at DEN]{.fellow-project-label}
-[Short title of the project this fellow is working on with the lab.]{.fellow-project-title}
+[Research at DEN]{.fellow-project-label}
+[Climate modelling.]{.fellow-project-title}
+[Placement]{.fellow-project-label}
+[Sekretaris Eksekutif Dewan Ekonomi Nasional]{.fellow-project-title}
+:::
+:::
+
+::: {.fellow-card}
+![Sufintri Rahayu](images/fellows/placeholder.svg){.fellow-photo fig-alt="Photo of Sufintri Rahayu"}
+
+[Sufintri Rahayu]{.fellow-name}
+
+[Nestlé, Bukalapak, Traveloka]{.fellow-affiliation}
+
+[Expertise: reputation management, public & media relations, government relations & public policy, business sustainability & CSR, internal communications, and crisis management.]{.fellow-bio}
+
+::: {.fellow-project}
+[Research at DEN]{.fellow-project-label}
+[DEN social media upgrading.]{.fellow-project-title}
+[Placement]{.fellow-project-label}
+[Sekretaris Eksekutif Dewan Ekonomi Nasional]{.fellow-project-title}
+:::
+:::
+
+::: {.fellow-card}
+![Muhammad Halley Yudhistira](images/fellows/placeholder.svg){.fellow-photo fig-alt="Photo of Muhammad Halley Yudhistira"}
+
+[Muhammad Halley Yudhistira]{.fellow-name}
+
+[LPEM FEB UI]{.fellow-affiliation}
+
+[Expertise: urban economics, transportation economics, and applied econometrics.]{.fellow-bio}
+
+::: {.fellow-project}
+[Research at DEN]{.fellow-project-label}
+[Toll roads and nightlight data.]{.fellow-project-title}
+[Placement]{.fellow-project-label}
+[Bidang Percepatan Program Prioritas Ekonomi]{.fellow-project-title}
 :::
 :::
 
